@@ -1,0 +1,566 @@
+CDC01:
+  alerts: no
+  _desc: "Cambios de datos del cliente (postcodes) ≥ umbral en 180 días."
+  params_by_segment:
+    All transactions: {Number: 2}
+    Big Companies: {Number: 2}
+    Imports/Exports: {Number: 2}
+    Individual: {Number: 2}
+    Institutional Clients: {Number: 2}
+    Investment Vehicle: {Number: 2}
+    LV Related - Individual: {Number: 2}
+    LV Related - Organization: {Number: 2}
+    Non Profit: {Number: 2}
+    Organization: {Number: 2}
+    Retail: {Number: 2}
+
+CDC02:
+  _desc: "Cambios de datos del cliente (postcodes) ≥ umbral en 180 días."
+  params_by_segment:
+    All transactions: {Number: 2}
+    Big Companies: {Number: 2}
+    Imports/Exports: {Number: 2}
+    Individual: {Number: 2}
+    Institutional Clients: {Number: 2}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 2}
+    LV Related - Organization: {Number: 2}
+    Non Profit: {Number: 4}
+    Organization: {Number: 2}
+    Retail: {Number: 2}
+
+CDC03:
+  _desc: "Cambios de datos del cliente (postcodes) ≥ umbral en 180 días."
+  params_by_segment:
+    All transactions: {Number: 2}
+    Big Companies: {Number: 2}
+    Imports/Exports: {Number: 2}
+    Individual: {Number: 2}
+    Institutional Clients: {Number: 2}
+    Investment Vehicle: {Number: 2}
+    LV Related - Individual: {Number: 2}
+    LV Related - Organization: {Number: 2}
+    Non Profit: {Number: 2}
+    Organization: {Number: 2}
+    Retail: {Number: 2}
+
+DORMANT:
+  _desc: "Primera actividad luego de 180+ días sin transaccionar."
+  params_by_segment:
+    All transactions: {}
+    Big Companies: {}
+    Imports/Exports: {}
+    Individual: {}
+    Institutional Clients: {}
+    Investment Vehicle: {}
+    LV Related - Individual: {}
+    LV Related - Organization: {}
+    Non Profit: {}
+    Organization: {}
+    Retail: {}
+
+HNR-IN:
+  _desc: "Número de IN redondos de alto valor en 30 días > umbral."
+  params_by_segment:
+    Big Companies: {Number: 40}
+    Imports/Exports: {Number: 18}
+    Individual: {Number: 3}
+    Investment Vehicle: {Number: 23}
+    LV Related - Individual: {Number: 3}
+    Non Profit: {Number: 7}
+    Organization: {Number: 5}
+    Retail: {Number: 6}
+
+HNR-OUT:
+  _desc: "Número de OUT redondos de alto valor en 30 días > umbral."
+  params_by_segment:
+    Big Companies: {Number: 70}
+    Imports/Exports: {Number: 26}
+    Individual: {Number: 3}
+    Investment Vehicle: {Number: 18}
+    LV Related - Individual: {Number: 3}
+    Non Profit: {Number: 5}
+    Organization: {Number: 5}
+    Retail: {Number: 4}
+
+HRCOU:
+  alerts: no
+  _desc: "País contraparte de alto riesgo (o banco) + monto/contador."
+  params_by_segment:
+    All transactions: {Count: 5, Amount: 0}
+    Big Companies: {Count: 1, Amount: 1000000}
+    Imports/Exports: {Count: 5, Amount: 1000000}
+    Individual: {Count: 5, Amount: 0}
+    Institutional Clients: {Count: 5, Amount: 1000000}
+    Investment Vehicle: {Count: 5, Amount: 1000000}
+    LV Related - Individual: {Count: 5, Amount: 10000000}
+    LV Related - Organization: {Count: 5, Amount: 0}
+    Non Profit: {Count: 1, Amount: 0}
+    Organization: {Count: 5, Amount: 0}
+    Retail: {Count: 5, Amount: 0}
+
+IN>AVG:
+  _desc: "IN por encima del promedio histórico del cliente (tx actual > Factor * avg; monto ≥ Amount; prev ≥ Number)."
+  params_by_segment:
+    Big Companies: {Amount: 1704149977, Factor: 4, Number: 143}
+    Imports/Exports: {Amount: 134712184, Factor: 4, Number: 38}
+    Individual: {Amount: 30000000, Factor: 2, Number: 2}
+    Investment Vehicle: {Amount: 207045000, Factor: 5, Number: 25}
+    LV Related - Individual: {Amount: 10000000, Factor: 1, Number: 2}
+    Non Profit: {Amount: 21232241, Factor: 5, Number: 191}
+    Organization: {Amount: 100, Factor: 2, Number: 2}
+    Retail: {Amount: 15446792, Factor: 6, Number: 10}
+
+IN>%OUT:
+  _desc: "Suma IN ≈ porcentaje de suma OUT en 30 días (con mínimo Amount)."
+  params_by_segment:
+    Big Companies: {Amount: 27924432578, Percentage_Low: 80, Percentage_High: 100}
+    Imports/Exports: {Amount: 1090365821, Percentage_Low: 110, Percentage_High: 150}
+    Individual: {Amount: 5000100, Percentage_Low: 80, Percentage_High: 100}
+    Investment Vehicle: {Amount: 1343984140, Percentage_Low: 80, Percentage_High: 100}
+    LV Related - Individual: {Amount: 10000000, Percentage_Low: 80, Percentage_High: 100}
+    Non Profit: {Amount: 355539548, Percentage_Low: 80, Percentage_High: 100}
+    Organization: {Amount: 30000000, Percentage_Low: 80, Percentage_High: 100}
+    Retail: {Amount: 49084774, Percentage_Low: 80, Percentage_High: 100}
+
+IN-OUT-1:
+  _desc: "OUT ≥ % de la suma de IN últimos 14 días (y OUT ≥ Amount; #IN prev ≥ Number)."
+  params_by_segment:
+    Big Companies: {Amount: 479000000, Number: 5, Percentage: 80}
+    Imports/Exports: {Amount: 43785100, Number: 3, Percentage: 80}
+    Individual: {Amount: 30000000, Number: 2, Percentage: 80}
+    Investment Vehicle: {Amount: 135093183, Number: 2, Percentage: 80}
+    LV Related - Individual: {Amount: 10000000, Number: 2, Percentage: 80}
+    Non Profit: {Amount: 31157949, Number: 11, Percentage: 80}
+    Organization: {Amount: 100000, Number: 2, Percentage: 80}
+    Retail: {Amount: 100000000, Number: 2, Percentage: 80}
+
+MCOC_1:
+  alerts: no
+  _desc: "Una contraparte ↔ múltiples clientes en 30 días (#clientes > Number)."
+  params_by_segment:
+    All transactions: {Number: 2}
+
+NBCOU:
+  _desc: "País del banco de la contraparte no visto antes para el cliente."
+  params_by_segment:
+    All transactions: {}
+    Big Companies: {}
+    Imports/Exports: {}
+    Individual: {}
+    Institutional Clients: {}
+    Investment Vehicle: {}
+    LV Related - Individual: {}
+    LV Related - Organization: {}
+    Non Profit: {}
+    Organization: {}
+    Retail: {}
+
+NCOU:
+  _desc: "País contraparte no visto antes para el cliente."
+  params_by_segment:
+    All transactions: {}
+    Big Companies: {}
+    Imports/Exports: {}
+    Individual: {}
+    Institutional Clients: {}
+    Investment Vehicle: {}
+    LV Related - Individual: {}
+    LV Related - Organization: {}
+    Non Profit: {}
+    Organization: {}
+    Retail: {}
+
+NCU:
+  _desc: "Moneda no usada antes por el cliente."
+  params_by_segment:
+    Individual: {}
+    Investment Vehicle: {}
+    LV Related - Individual: {}
+    Non Profit: {}
+    Organization: {}
+    Retail: {}
+
+NUMCCI:
+  alerts: no
+  _desc: "Número de IN desde una misma contraparte en 30 días > Number (por tipo)."
+  params_by_segment:
+    Big Companies: {Type: "third party payment", Number: 2}
+    Imports/Exports: {Type: "third party payment", Number: 2}
+    Individual: {Type: "third party payment", Number: 2}
+    Investment Vehicle: {Type: "third party payment", Number: 2}
+    LV Related - Individual: {Type: "third party payment", Number: 2}
+    Non Profit: {Type: "third party payment", Number: 2}
+    Organization: {Type: "third party payment", Number: 2}
+    Retail: {Type: "third party payment", Number: 2}
+
+OCMC_1:
+  _desc: "Un cliente ↔ múltiples contrapartes en 30 días (#contrapartes > Number)."
+  params_by_segment:
+    All transactions: {Number: 2}
+    Big Companies: {Number: 69}
+    Imports/Exports: {Number: 35}
+    Individual: {Number: 2}
+    Institutional Clients: {Number: 2}
+    Investment Vehicle: {Number: 29}
+    LV Related - Individual: {Number: 2}
+    LV Related - Organization: {Number: 2}
+    Non Profit: {Number: 3}
+    Organization: {Number: 2}
+    Retail: {Number: 2}
+
+OUT>AVG:
+  _desc: "OUT por encima del promedio histórico (tx actual > Factor * avg; monto ≥ Amount; prev ≥ Number)."
+  params_by_segment:
+    Big Companies: {Amount: 400000000, Factor: 5, Number: 436}
+    Imports/Exports: {Amount: 45402580, Factor: 4, Number: 65}
+    Individual: {Amount: 5000000, Factor: 3, Number: 2}
+    Investment Vehicle: {Amount: 106969616, Factor: 5, Number: 39}
+    LV Related - Individual: {Amount: 10000000, Factor: 1, Number: 2}
+    Non Profit: {Amount: 65000000, Factor: 4, Number: 196}
+    Organization: {Amount: 10000000, Factor: 3, Number: 2}
+    Retail: {Amount: 17000000, Factor: 7, Number: 9}
+
+OUT>%IN:
+  _desc: "Suma OUT ≈ porcentaje de suma IN en 30 días (con mínimo Amount)."
+  params_by_segment:
+    Big Companies: {Amount: 18357258899, Percentage_Low: 90, Percentage_High: 110}
+    Imports/Exports: {Amount: 804076122, Percentage_Low: 125, Percentage_High: 200}
+    Individual: {Amount: 30000000, Percentage_Low: 90, Percentage_High: 110}
+    Investment Vehicle: {Amount: 1265604357, Percentage_Low: 90, Percentage_High: 110}
+    LV Related - Individual: {Amount: 10000000, Percentage_Low: 90, Percentage_High: 110}
+    Non Profit: {Amount: 920989339, Percentage_Low: 90, Percentage_High: 110}
+    Organization: {Amount: 30000000, Percentage_Low: 90, Percentage_High: 110}
+    Retail: {Amount: 45000000, Percentage_Low: 90, Percentage_High: 110}
+
+P-1st:
+  _desc: "Primera transacción del cliente en X días y ≥ Amount."
+  params_by_segment:
+    All transactions: {Days: 7, Amount: 1000}
+    Big Companies: {Days: 7, Amount: 3525791500}
+    Imports/Exports: {Days: 7, Amount: 244844689}
+    Institutional Clients: {Days: 7, Amount: 200000000}
+    Investment Vehicle: {Days: 7, Amount: 990300000}
+    LV Related - Individual: {Days: 7, Amount: 1000}
+    LV Related - Organization: {Days: 7, Amount: 100000000000}
+    Non Profit: {Days: 7, Amount: 10000}
+    Retail: {Days: 7, Amount: 389142381}
+
+P-2nd:
+  _desc: "Segunda transacción del cliente en X días y ≥ Amount."
+  params_by_segment:
+    All transactions: {Days: 7, Amount: 1000}
+    Big Companies: {Days: 7, Amount: 3525791500}
+    Imports/Exports: {Days: 7, Amount: 244844689}
+    Institutional Clients: {Days: 7, Amount: 100000000}
+    Investment Vehicle: {Days: 7, Amount: 990300000}
+    LV Related - Individual: {Days: 7, Amount: 10000000}
+    LV Related - Organization: {Days: 7, Amount: 100000000000}
+    Non Profit: {Days: 7, Amount: 10000}
+    Retail: {Days: 7, Amount: 386816508}
+
+P-%BAL:
+  alerts: no
+  _desc: "Saldo previo alto y OUT ≥ % del saldo (antes de la tx)."
+  params_by_segment:
+    Big Companies: {Balance: 76000000000, Percentage: 95}
+    Imports/Exports: {Balance: 1048744284, Percentage: 95}
+    Individual: {Balance: 1000000, Percentage: 95}
+    Investment Vehicle: {Balance: 7305200400, Percentage: 95}
+    LV Related - Individual: {Balance: 10000000, Percentage: 95}
+    Non Profit: {Balance: 5141466079, Percentage: 50}
+    Organization: {Balance: 5000000, Percentage: 95}
+    Retail: {Balance: 1500000000, Percentage: 95}
+
+PGAV-IN:
+  _desc: "IN > Factor * promedio del peer-group 7d (con Amount y Number)."
+  params_by_segment:
+    Individual: {Type: "Individual", Amount: 30000000, Factor: 4, Number: 1}
+    Investment Vehicle: {Type: "Organization", Amount: 219295388, Factor: 5, Number: 141}
+    LV Related - Individual: {Type: "test", Amount: 10000000, Factor: 2, Number: 1}
+    Non Profit: {Type: "Organization", Amount: 22080000, Factor: 12, Number: 13}
+    Organization: {Type: "test", Amount: 100, Factor: 2, Number: 1}
+    Retail: {Type: "Individual", Amount: 20000000, Factor: 5, Number: 139}
+
+PGAV-OUT:
+  _desc: "OUT > Factor * promedio del peer-group 7d (con Amount y Number)."
+  params_by_segment:
+    Individual: {Type: "Individual", Amount: 30000000, Factor: 4, Number: 1}
+    Investment Vehicle: {Type: "Organization", Amount: 110000000, Factor: 5, Number: 226}
+    LV Related - Individual: {Type: "test", Amount: 10000000, Factor: 2, Number: 1}
+    Non Profit: {Type: "Organization", Amount: 65053181, Factor: 13, Number: 13}
+    Organization: {Type: "test", Amount: 100, Factor: 2, Number: 1}
+    Retail: {Type: "Individual", Amount: 17983025, Factor: 4, Number: 203}
+
+P-HSUMI:
+  _desc: "Suma IN en 7 días > X."
+  params_by_segment:
+    Big Companies: {Amount: 60589193757}
+    Imports/Exports: {Amount: 9662835000}
+    Individual: {Amount: 100000000}
+    Investment Vehicle: {Amount: 11064631073}
+    LV Related - Individual: {Amount: 100000000}
+    Non Profit: {Amount: 4821882755}
+    Organization: {Amount: 100000000}
+    Retail: {Amount: 299000000}
+
+P-HSUMO:
+  _desc: "Suma OUT en 7 días > X."
+  params_by_segment:
+    Big Companies: {Amount: 28886460267}
+    Imports/Exports: {Amount: 9941685250}
+    Individual: {Amount: 100000000}
+    Investment Vehicle: {Amount: 9087577502}
+    LV Related - Individual: {Amount: 100000000}
+    Non Profit: {Amount: 2640002508}
+    Organization: {Amount: 100000000}
+    Retail: {Amount: 373635900}
+
+P-HVI:
+  _desc: "Número de IN en 7 días > Number."
+  params_by_segment:
+    Big Companies: {Number: 93}
+    Imports/Exports: {Number: 26}
+    Individual: {Number: 10}
+    Investment Vehicle: {Number: 29}
+    LV Related - Individual: {Number: 10}
+    Non Profit: {Number: 31}
+    Organization: {Number: 10}
+    Retail: {Number: 37}
+
+P-HVO:
+  _desc: "Número de OUT en 7 días > Number."
+  params_by_segment:
+    Big Companies: {Number: 131}
+    Imports/Exports: {Number: 121}
+    Individual: {Number: 10}
+    Investment Vehicle: {Number: 50}
+    LV Related - Individual: {Number: 10}
+    Non Profit: {Number: 31}
+    Organization: {Number: 10}
+    Retail: {Number: 12}
+
+P-LBAL:
+  _desc: "Saldo al cierre > Balance."
+  params_by_segment:
+    Big Companies: {Balance: 5500411232}
+    Imports/Exports: {Balance: 1206067841}
+    Individual: {Balance: 500000000}
+    Investment Vehicle: {Balance: 1678000000}
+    LV Related - Individual: {Balance: 10000}
+    Non Profit: {Balance: 4000000000}
+    Organization: {Balance: 500000000}
+    Retail: {Balance: 200000000}
+
+P-LVAL:
+  _desc: "Tx > Factor × monto esperado del cliente."
+  params_by_segment:
+    Big Companies: {Factor: 13}
+    Imports/Exports: {Factor: 4.36}
+    Individual: {Factor: 2}
+    Investment Vehicle: {Factor: 2}
+    LV Related - Individual: {Factor: 2}
+    Non Profit: {Factor: 2}
+    Organization: {Factor: 2}
+    Retail: {Factor: 1.67}
+
+PRCOU:
+  alerts: no
+  _desc: "País contraparte de riesgo prohibido (o país banco) + monto mínimo."
+  params_by_segment:
+    All transactions: {Risk: "Prohibited", Amount: 100}
+    Big Companies: {Risk: "Prohibited", Amount: 1000000000}
+    Imports/Exports: {Risk: "Prohibited", Amount: 1000000}
+    Individual: {Risk: "Prohibited", Amount: 100}
+    Institutional Clients: {Risk: "Prohibited", Amount: 100000000}
+    Investment Vehicle: {Risk: "Prohibited", Amount: 1000000}
+    LV Related - Individual: {Risk: "Prohibited", Amount: 1000000}
+    LV Related - Organization: {Risk: "Prohibited", Amount: 100}
+    Non Profit: {Risk: "Prohibited", Amount: 1}
+    Organization: {Risk: "Prohibited", Amount: 100}
+    Retail: {Risk: "Prohibited", Amount: 50000000}
+
+P-TLI:
+  _desc: "IN > Amount (límite alto)."
+  params_by_segment:
+    Big Companies: {Amount: 5500411232}
+    Imports/Exports: {Amount: 1206067841}
+    Individual: {Amount: 100000000}
+    Investment Vehicle: {Amount: 1678000000}
+    LV Related - Individual: {Amount: 100000000}
+    Non Profit: {Amount: 400000000}
+    Organization: {Amount: 100000000}
+    Retail: {Amount: 200000000}
+
+P-TLO:
+  _desc: "OUT > Amount (límite alto)."
+  params_by_segment:
+    Big Companies: {Amount: 3302065500}
+    Imports/Exports: {Amount: 1005152890}
+    Individual: {Amount: 100000000}
+    Investment Vehicle: {Amount: 1349692960}
+    LV Related - Individual: {Amount: 100000000}
+    Non Profit: {Amount: 1114144334}
+    Organization: {Amount: 100000000}
+    Retail: {Amount: 182633523}
+
+RVT-IN:
+  _desc: "IN redondos en 30 días: conteo > Number y suma > Amount."
+  params_by_segment:
+    All transactions: {Amount: 1000, Number: 3}
+    Big Companies: {Amount: 24800000000, Number: 41}
+    Imports/Exports: {Amount: 3834223610, Number: 13}
+    Individual: {Amount: 30000000, Number: 5}
+    Institutional Clients: {Amount: 50000000000, Number: 3}
+    Investment Vehicle: {Amount: 4685105600, Number: 23}
+    LV Related - Individual: {Amount: 100000000, Number: 3}
+    LV Related - Organization: {Amount: 1000, Number: 25}
+    Non Profit: {Amount: 406000000, Number: 7}
+    Organization: {Amount: 35000000, Number: 5}
+    Retail: {Amount: 99800000, Number: 6}
+
+RVT-OUT:
+  _desc: "OUT redondos en 30 días: conteo > Number y suma > Amount."
+  params_by_segment:
+    All transactions: {Amount: 1000, Number: 3}
+    Big Companies: {Amount: 24055000000, Number: 72}
+    Imports/Exports: {Amount: 4240240400, Number: 17}
+    Individual: {Amount: 10000000, Number: 3}
+    Institutional Clients: {Amount: 50000000000, Number: 3}
+    Investment Vehicle: {Amount: 2881726900, Number: 19}
+    LV Related - Individual: {Amount: 10000000, Number: 3}
+    LV Related - Organization: {Amount: 1000, Number: 25}
+    Non Profit: {Amount: 500000000, Number: 5}
+    Organization: {Amount: 15000000, Number: 3}
+    Retail: {Amount: 54000000, Number: 4}
+
+SEC:
+  _desc: "Cuenta de valores con poca actividad de valores vs no-valores."
+  params_by_segment:
+    Big Companies: {Limit: 100000000, Amount: 10000000}
+    Imports/Exports: {Limit: 100, Amount: 10000000}
+    Individual: {Limit: 30000000, Amount: 10000000}
+    Investment Vehicle: {Limit: 300000000, Amount: 10000000}
+    LV Related - Individual: {Limit: 10000000, Amount: 100000000}
+    Non Profit: {Limit: 1000000, Amount: 10000000}
+    Organization: {Limit: 30000000, Amount: 10000000}
+    Retail: {Limit: 30000000, Amount: 10000000}
+
+STRINCLP:
+  alerts: no
+  _desc: "IN bajos (9.950–9.999) en 7 días, conteo > Number (CLP)."
+  params_by_segment:
+    All transactions: {Number: 3}
+    Big Companies: {Number: 3}
+    Imports/Exports: {Number: 3}
+    Individual: {Number: 3}
+    Institutional Clients: {Number: 3}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 3}
+    LV Related - Organization: {Number: 3}
+    Non Profit: {Number: 3}
+    Organization: {Number: 3}
+    Retail: {Number: 3}
+
+STRINEUR:
+  alerts: no
+  _desc: "IN bajos (9.950–9.999) en 7 días, conteo > Number (EUR)."
+  params_by_segment:
+    All transactions: {Number: 3}
+    Big Companies: {Number: 3}
+    Imports/Exports: {Number: 3}
+    Individual: {Number: 3}
+    Institutional Clients: {Number: 3}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 3}
+    LV Related - Organization: {Number: 3}
+    Non Profit: {Number: 3}
+    Organization: {Number: 3}
+    Retail: {Number: 3}
+
+STRINUSD:
+  alerts: no
+  _desc: "IN bajos (9.950–9.999) en 7 días, conteo > Number (USD)."
+  params_by_segment:
+    All transactions: {Number: 3}
+    Big Companies: {Number: 3}
+    Imports/Exports: {Number: 3}
+    Individual: {Number: 3}
+    Institutional Clients: {Number: 3}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 3}
+    LV Related - Organization: {Number: 3}
+    Non Profit: {Number: 3}
+    Organization: {Number: 3}
+    Retail: {Number: 3}
+
+STROTCLP:
+  _desc: "OUT bajos (9.950–9.999) en 7 días, conteo > Number (CLP)."
+  params_by_segment:
+    All transactions: {Number: 3}
+    Big Companies: {Number: 3}
+    Imports/Exports: {Number: 3}
+    Individual: {Number: 3}
+    Institutional Clients: {Number: 3}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 3}
+    LV Related - Organization: {Number: 3}
+    Non Profit: {Number: 3}
+    Organization: {Number: 3}
+    Retail: {Number: 3}
+
+STROTEUR:
+  _desc: "OUT bajos (9.950–9.999) en 7 días, conteo > Number (EUR)."
+  params_by_segment:
+    All transactions: {Number: 3}
+    Big Companies: {Number: 3}
+    Imports/Exports: {Number: 3}
+    Individual: {Number: 3}
+    Institutional Clients: {Number: 3}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 3}
+    LV Related - Organization: {Number: 3}
+    Non Profit: {Number: 3}
+    Organization: {Number: 3}
+    Retail: {Number: 3}
+
+STROTUSD:
+  _desc: "OUT bajos (9.950–9.999) en 7 días, conteo > Number (USD)."
+  params_by_segment:
+    All transactions: {Number: 3}
+    Big Companies: {Number: 3}
+    Imports/Exports: {Number: 3}
+    Individual: {Number: 3}
+    Institutional Clients: {Number: 3}
+    Investment Vehicle: {Number: 3}
+    LV Related - Individual: {Number: 3}
+    LV Related - Organization: {Number: 3}
+    Non Profit: {Number: 3}
+    Organization: {Number: 3}
+    Retail: {Number: 3}
+
+SUMCCI:
+  alerts: no
+  _desc: "Suma de IN desde una misma contraparte en 30 días > Amount (por tipo)."
+  params_by_segment:
+    Big Companies: {Type: "third party payment", Amount: 500000000}
+    Imports/Exports: {Type: "third party payment", Amount: 1000000}
+    Individual: {Type: "third party payment", Amount: 15000000}
+    Investment Vehicle: {Type: "third party payment", Amount: 100000000}
+    LV Related - Individual: {Type: "third party payment", Amount: 10000000}
+    Non Profit: {Type: "third party payment", Amount: 10000000}
+    Organization: {Type: "third party payment", Amount: 100}
+    Retail: {Type: "third party payment", Amount: 100000000}
+
+SUMCCO:
+  alerts: no
+  _desc: "Suma de OUT hacia una misma contraparte en 30 días > Amount (por tipo)."
+  params_by_segment:
+    Big Companies: {Type: "wire transfer", Amount: 500000000}
+    Imports/Exports: {Type: "wire transfer", Amount: 1000000}
+    Individual: {Type: "wire transfer", Amount: 15000000}
+    Investment Vehicle: {Type: "wire transfer", Amount: 100000000}
+    LV Related - Individual: {Type: "wire transfer", Amount: 10000000}
+    Non Profit: {Type: "wire transfer", Amount: 10000000}
+    Organization: {Type: "wire transfer", Amount: 100}
+    Retail: {Type: "wire transfer", Amount: 100000000}

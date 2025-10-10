@@ -1,0 +1,482 @@
+segments:
+  - All transactions
+  - Big Companies
+  - Imports/Exports
+  - Institutional Clients
+  - Investment Vehicle
+  - LV Related - Individual
+  - LV Related - Organization
+  - Non Profit
+  - Retail
+
+P-2nd:
+  _desc: "Segunda transacción del cliente en ≤ 7 días y ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Days: 7
+      Amount:
+        current: 990300000
+        proposals:
+          p85: 80563603
+          p90: 85145286
+          p95: 89726968
+          p97: 91559641
+          p99: 93392314
+
+P-1st:
+  _desc: "Primera transacción del cliente en ≤ 7 días desde apertura y ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Days: 7
+      Amount:
+        current: 990300000
+        proposals:
+          p85: 194500000
+          p90: 208000000
+          p95: 221500000
+          p97: 226900000
+          p99: 232300000
+
+P-%BAL:
+  alerts: no
+  _desc: "Saldo previo alto y OUT ≥ {Percentage}% del saldo previo."
+  params_by_segment:
+    Investment Vehicle:
+      Balance:
+        current: 7305200400
+        proposals:
+          p90: 2012533361
+          p95: 3624167233
+          p97: 5307767468
+          p99: 10466651357
+      Percentage: 95
+
+P-LBAL:
+  _desc: "IN Cash y el balance base (incluida la tx) supera {Balance}."
+  params_by_segment:
+    Investment Vehicle:
+      Balance:
+        current: 1678000000
+        proposals:
+          p90: 2012533361
+          p95: 3624167233
+          p96: 4390477633
+          p97: 5307767468
+          p99: 10466651357
+
+P-LVAL:
+  _desc: "Tx Cash > {Factor} × monto esperado del cliente."
+  params_by_segment:
+    Investment Vehicle:
+      Factor:
+        current: 2
+        proposals:
+          p90: 0
+          p95: 1
+          p97: 1
+          p99: 3
+
+P-TLI:
+  _desc: "IN Cash ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 1678000000
+        proposals:
+          p90: 254400000
+          p95: 479700000
+          p97: 725081873
+          p99: 1426905000
+
+P-TLO:
+  _desc: "OUT Cash ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 1349692960
+        proposals:
+          p90: 105957906
+          p95: 247354390
+          p97: 390332874
+          p99: 1001700242
+
+IN>AVG:
+  _desc: "IN Cash > {Factor} × promedio histórico IN (excluye la tx), y ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 207045000
+        proposals:
+          p85: 187288250
+          p90: 254400000
+          p95: 479700000
+          p97: 725081873
+          p99: 1426905000
+      Factor:
+        current: 5
+        proposals:
+          p85: 2
+          p90: 3
+          p95: 6
+          p97: 10
+          p99: 48
+      Number: 25
+
+IN-OUT-1:
+  _desc: 
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 135093183
+        proposals:
+          p90: 105957906
+          p95: 247354390
+          p97: 390332874
+      Number: 2
+      Percentage: 80
+
+OUT>AVG:
+  _desc: "OUT Cash > {Factor} × promedio histórico OUT (excluye la tx), y ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 106969616
+        proposals:
+          p90: 105957906
+          p95: 247354390
+          p97: 390332874
+      Factor:
+        current: 5
+        proposals:
+          p85: 3
+          p90: 4
+          p95: 7
+          p97: 12
+          p99: 42
+      Number: 39
+
+IN>%OUT:
+  _desc: "Suma IN 30d ∈ [Low–High]% de la suma OUT 30d; umbral Amount (IN 30d)."
+  params_by_segment:
+    Investment Vehicle:
+      Amount_IN_30d:
+        current: 1343984140
+        proposals:
+          p85: 175000000
+          p90: 309645819
+          p95: 700000000
+          p97: 1101411111
+          p99: 2961000000
+      Low: 80
+      High: 100
+
+OUT>%IN:
+  _desc: "Suma OUT 30d ∈ [Low–High]% de la suma IN 30d; umbral Amount (OUT 30d)."
+  params_by_segment:
+    Investment Vehicle:
+      Amount_OUT_30d:
+        current: 1265604357
+        proposals:
+          p85: 84533060
+          p90: 147517848
+          p95: 368566817
+          p97: 652451721
+          p99: 1940081511
+      Low: 90
+      High: 110
+
+P-HVI:
+  _desc: "Máximo # de IN Cash por cliente en 30 días."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 29
+        proposals:
+          p90: 4
+          p95: 6
+          p97: 8
+          p99: 11
+
+P-HVO:
+  _desc: "Máximo # de OUT Cash por cliente en 30 días."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 50
+        proposals:
+          p90: 5
+          p95: 7
+          p97: 9
+          p99: 15
+
+P-HSUMI:
+  _desc: "Suma IN Cash en 30 días ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 11064631073
+        proposals:
+          p85: 402334913
+          p90: 603000000
+          p95: 1255627419
+          p97: 2102301629
+          p99: 4609635816
+
+P-HSUMO:
+  _desc: "Suma OUT Cash en 30 días ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 9087577502
+        proposals:
+          p85: 238733016
+          p90: 400000000
+          p95: 838094618
+          p97: 1422682606
+          p99: 3327849941
+
+PGAV-IN:
+  _desc: "IN Cash > {Factor} × promedio del grupo (7d), con ≥ Number en 7d y ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 219295388
+        proposals:
+          p95: 479700000
+          p97: 725081873
+          p99: 1426905000
+      Factor:
+        current: 5
+        proposals:
+          p95: 5
+          p97: 7
+          p99: 15
+      Number:
+        current: 141
+        proposals:
+          p50: 212
+          p75: 233
+          p90: 251
+
+PGAV-OUT:
+  _desc: "OUT Cash > {Factor} × promedio del grupo (7d), con ≥ Number en 7d y ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 110000000
+        proposals:
+          p85: 65603551
+          p90: 104868743
+          p95: 243969044
+          p97: 387490727
+          p99: 1003875903
+      Factor:
+        current: 5
+        proposals:
+          p95: 5
+          p97: 7
+          p99: 18
+      Number:
+        current: 226
+        proposals:
+          p50: 421
+          p75: 485
+          p90: 556
+
+HNR-IN:
+  _desc: "Más de {Number} IN Cash redondas y high-value (base>1000 CLP) en 30 días."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 23
+        proposals:
+          p90: 4
+          p95: 5
+          p97: 7
+          p99: 10
+
+HNR-OUT:
+  _desc: "Más de {Number} OUT Cash redondas y high-value (base>1000 CLP) en 30 días."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 18
+        proposals:
+          p90: 3
+          p95: 4
+          p97: 4
+          p99: 5
+
+RVT-IN:
+  _desc: "Más de {Number} IN Cash redondas en 30 días y suma base ≥ {Amount}."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 23
+        proposals:
+          p50: 0
+          p75: 1
+          p90: 2
+          p95: 2
+      Amount:
+        current: 4685105600
+        proposals:
+          p85: 50000000
+          p90: 110000000
+          p95: 300000000
+          p97: 500000000
+          p99: 1544000000
+
+RVT-OUT:
+  _desc: "Más de {Number} OUT Cash redondas en 30 días y suma base ≥ {Amount}."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 19
+        proposals:
+          p50: 0
+          p75: 1
+          p90: 2
+          p95: 2
+      Amount:
+        current: 2881726900
+        proposals:
+          p85: 26554030
+          p90: 50000000
+          p95: 140000000
+          p97: 259903000
+          p99: 769600000
+
+HASUMI:
+  _desc: "En 3 días, suma IN > {Factor}×promedio diario 3d (histórico 177d aprox); además ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 769571500
+        proposals:
+          p85: 190929800
+          p90: 300000000
+          p95: 635271084
+          p97: 984269200
+          p99: 2079721293
+      Factor:
+        current: 7
+        proposals:
+          p95: 50
+          p97: 86
+          p99: 411
+
+HASUMO:
+  _desc: "En 3 días, suma OUT > {Factor}×promedio diario 3d (histórico 177d aprox); además ≥ Amount."
+  params_by_segment:
+    Investment Vehicle:
+      Amount:
+        current: 257258459
+        proposals:
+          p85: 82000000
+          p90: 140000000
+          p95: 301443788
+          p97: 573539287
+          p99: 1507500000
+      Factor:
+        current: 111
+        proposals:
+          p95: 50
+          p97: 89
+          p99: 458
+
+HANUMI:
+  _desc: "En 3 días, # IN > {Factor}×promedio 3d histórico; además # IN 3d ≥ {Number}."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 2
+        proposals:
+          p85: 2
+          p90: 2
+          p95: 3
+          p97: 3
+          p99: 4
+      Factor:
+        current: 59
+        proposals:
+          p95: 22
+          p97: 27
+          p99: 41
+
+HANUMO:
+  _desc: "En 3 días, # OUT > {Factor}×promedio 3d histórico; además # OUT 3d ≥ {Number}."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 2
+        proposals:
+          p85: 2
+          p90: 2
+          p95: 3
+          p97: 3
+          p99: 5
+      Factor:
+        current: 59
+        proposals:
+          p95: 18
+          p97: 23
+          p99: 33
+
+OCMC_1:
+  _desc: "Más de {Number} counterparties únicas en 30 días (excluye counterparty_id='NA')."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current: 29
+        proposals:
+          p50: 1
+          p75: 2
+          p90: 4
+          p95: 8
+          p97: 18
+          p99: 28
+
+STRINCLP:
+  _desc: "En 7 días, más de X IN en CLP con montos entre 9,950 y 10,000 CLP."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current:
+        proposals: {}
+      amount_range_CLP:
+        min: 9950
+        max: 10000
+
+STROTCLP:
+  _desc: "En 7 días, más de X OUT en CLP con montos entre 9,950 y 10,000 CLP."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current:
+        proposals: {}
+      amount_range_CLP:
+        min: 9950
+        max: 10000
+
+STRINEUR:
+  _desc: "En 7 días, más de X IN en EUR equivalentes a 9,950–10,000 CLP."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current:
+        proposals: {}
+      amount_range_CLP_equiv:
+        min: 9950
+        max: 10000
+
+STROTEUR:
+  _desc: "En 7 días, más de X OUT en EUR equivalentes a 9,950–10,000 CLP."
+  params_by_segment:
+    Investment Vehicle:
+      Number:
+        current:
+        proposals: {}
+      amount_range_CLP_equiv:
+        min: 9950
+        max: 10000
