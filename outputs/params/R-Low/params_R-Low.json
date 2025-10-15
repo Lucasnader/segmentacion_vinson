@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "subsubsegment": "R-Low",
+    "tx_path": "C:\\Users\\vinso\\LV_vsc\\data\\tx\\datos_trx__with_subsub.csv",
+    "generated_at": "2025-10-15T18:49:37Z"
+  },
+  "rules": {
+    "RVT-IN": {
+      "number": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Number_raw": 7.0,
+            "Number_ceil": 7.0
+          },
+          {
+            "percentil": "p97",
+            "Number_raw": 8.0,
+            "Number_ceil": 8.0
+          },
+          {
+            "percentil": "p99",
+            "Number_raw": 11.0,
+            "Number_ceil": 11.0
+          }
+        ]
+      },
+      "amount": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Amount_CLP": 178051260.0
+          },
+          {
+            "percentil": "p97",
+            "Amount_CLP": 250002600.0
+          },
+          {
+            "percentil": "p99",
+            "Amount_CLP": 430000420.0
+          }
+        ]
+      }
+    },
+    "RVT-OUT": {
+      "number": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Number_raw": 4.0,
+            "Number_ceil": 4.0
+          },
+          {
+            "percentil": "p97",
+            "Number_raw": 5.0,
+            "Number_ceil": 5.0
+          },
+          {
+            "percentil": "p99",
+            "Number_raw": 8.0,
+            "Number_ceil": 8.0
+          }
+        ]
+      },
+      "amount": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Amount_CLP": 103398544.0
+          },
+          {
+            "percentil": "p97",
+            "Amount_CLP": 149864000.0
+          },
+          {
+            "percentil": "p99",
+            "Amount_CLP": 301573275.0
+          }
+        ]
+      }
+    },
+    "STRINCLP": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": null
+        }
+      ]
+    },
+    "STRINEUR": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": null
+        }
+      ]
+    },
+    "STRINUSD": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": null
+        }
+      ]
+    },
+    "STROTCLP": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": null
+        }
+      ]
+    },
+    "STROTEUR": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": null
+        }
+      ]
+    },
+    "STROTUSD": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": null
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": null
+        }
+      ]
+    },
+    "SUMCCI": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Amount_CLP": 62479344.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 120000000.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 184453778.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 344019258.0
+        }
+      ]
+    },
+    "SUMCCO": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Amount_CLP": 36161334.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 73186657.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 107379182.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 245241623.0
+        }
+      ]
+    }
+  }
+}
