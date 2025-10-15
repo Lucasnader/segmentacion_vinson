@@ -2,9 +2,171 @@
   "meta": {
     "subsubsegment": "R-Low",
     "tx_path": "C:\\Users\\vinso\\LV_vsc\\data\\tx\\datos_trx__with_subsub.csv",
-    "generated_at": "2025-10-15T18:49:37Z"
+    "generated_at": "2025-10-15T20:01:34Z"
   },
   "rules": {
+    "PGAV-IN": {
+      "amount": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p85",
+            "Amount_CLP": 7000000.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p90",
+            "Amount_CLP": 12357278.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p95",
+            "Amount_CLP": 33000000.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p97",
+            "Amount_CLP": 56149622.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p99",
+            "Amount_CLP": 130000000.0
+          }
+        ]
+      },
+      "factor": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p90",
+            "Factor_raw": 1.61,
+            "Factor": 2.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p95",
+            "Factor_raw": 4.19,
+            "Factor": 5.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p97",
+            "Factor_raw": 7.37,
+            "Factor": 8.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p99",
+            "Factor_raw": 17.1,
+            "Factor": 18.0
+          }
+        ]
+      },
+      "number": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p50",
+            "Number_raw": 855.0,
+            "Number": 855.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p75",
+            "Number_raw": 1031.0,
+            "Number": 1031.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p90",
+            "Number_raw": 1174.0,
+            "Number": 1174.0
+          }
+        ]
+      }
+    },
+    "PGAV-OUT": {
+      "amount": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p85",
+            "Amount_CLP": 9112696.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p90",
+            "Amount_CLP": 13269254.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p95",
+            "Amount_CLP": 26768268.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p97",
+            "Amount_CLP": 44068121.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p99",
+            "Amount_CLP": 100000000.0
+          }
+        ]
+      },
+      "factor": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p90",
+            "Factor_raw": 1.9,
+            "Factor": 2.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p95",
+            "Factor_raw": 3.84,
+            "Factor": 4.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p97",
+            "Factor_raw": 6.16,
+            "Factor": 7.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p99",
+            "Factor_raw": 14.58,
+            "Factor": 15.0
+          }
+        ]
+      },
+      "number": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p50",
+            "Number_raw": 922.0,
+            "Number": 922.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p75",
+            "Number_raw": 1075.0,
+            "Number": 1075.0
+          },
+          {
+            "customer_sub_sub_type": "R-Low",
+            "percentil": "p90",
+            "Number_raw": 1228.0,
+            "Number": 1228.0
+          }
+        ]
+      }
+    },
     "RVT-IN": {
       "number": {
         "percentiles": [
@@ -78,190 +240,6 @@
           }
         ]
       }
-    },
-    "STRINCLP": {
-      "percentiles": [
-        {
-          "percentil": "p85",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p90",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p95",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p97",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p99",
-          "X_candidatos": null
-        }
-      ]
-    },
-    "STRINEUR": {
-      "percentiles": [
-        {
-          "percentil": "p85",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p90",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p95",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p97",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p99",
-          "X_candidatos": null
-        }
-      ]
-    },
-    "STRINUSD": {
-      "percentiles": [
-        {
-          "percentil": "p85",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p90",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p95",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p97",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p99",
-          "X_candidatos": null
-        }
-      ]
-    },
-    "STROTCLP": {
-      "percentiles": [
-        {
-          "percentil": "p85",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p90",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p95",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p97",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p99",
-          "X_candidatos": null
-        }
-      ]
-    },
-    "STROTEUR": {
-      "percentiles": [
-        {
-          "percentil": "p85",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p90",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p95",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p97",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p99",
-          "X_candidatos": null
-        }
-      ]
-    },
-    "STROTUSD": {
-      "percentiles": [
-        {
-          "percentil": "p85",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p90",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p95",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p97",
-          "X_candidatos": null
-        },
-        {
-          "percentil": "p99",
-          "X_candidatos": null
-        }
-      ]
-    },
-    "SUMCCI": {
-      "percentiles": [
-        {
-          "percentil": "p90",
-          "Amount_CLP": 62479344.0
-        },
-        {
-          "percentil": "p95",
-          "Amount_CLP": 120000000.0
-        },
-        {
-          "percentil": "p97",
-          "Amount_CLP": 184453778.0
-        },
-        {
-          "percentil": "p99",
-          "Amount_CLP": 344019258.0
-        }
-      ]
-    },
-    "SUMCCO": {
-      "percentiles": [
-        {
-          "percentil": "p90",
-          "Amount_CLP": 36161334.0
-        },
-        {
-          "percentil": "p95",
-          "Amount_CLP": 73186657.0
-        },
-        {
-          "percentil": "p97",
-          "Amount_CLP": 107379182.0
-        },
-        {
-          "percentil": "p99",
-          "Amount_CLP": 245241623.0
-        }
-      ]
     }
   }
 }

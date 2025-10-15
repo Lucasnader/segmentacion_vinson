@@ -35,9 +35,9 @@ def run_parameters_pgav_in(
     if "customer_sub_sub_type" in tx.columns:
         tx = tx[tx["customer_sub_sub_type"].astype(str).isin(targets)].copy()
 
-    GROUP_COL = "customer_sub_type" if "customer_sub_type" in tx.columns else "customer_type"
+    GROUP_COL = "customer_sub_sub_type" if "customer_sub_sub_type" in tx.columns else "customer_type"
     if GROUP_COL not in tx.columns:
-        raise KeyError("No encontré ni 'customer_sub_type' ni 'customer_type' en el CSV.")
+        raise KeyError("No encontré ni 'customer_sub_sub_type' ni 'customer_type' en el CSV.")
 
     g = tx[
         (tx["tx_direction"].eq("Inbound")) &
@@ -47,12 +47,14 @@ def run_parameters_pgav_in(
     ].copy()
 
     if g.empty:
-        cols = [GROUP_COL]
-        cols += [f"Amount_p{int(q*100)}" for q in amount_qs]
-        for q in factor_qs: cols += [f"Factor_p{int(q*100)}_raw", f"Factor_p{int(q*100)}"]
-        for q in number_qs: cols += [f"Number_p{int(q*100)}_raw", f"Number_p{int(q*100)}"]
-        out = pd.DataFrame(columns=cols)
-        return {"meta": {"groups": 0, "rows": 0}, "percentiles": out}
+        # Salida vacía uniforme (3 subtables vacías)
+        empty_amt = pd.DataFrame(columns=[GROUP_COL, "percentil", "Amount_CLP"])
+        empty_fac = pd.DataFrame(columns=[GROUP_COL, "percentil", "Factor_raw", "Factor"])
+        empty_num = pd.DataFrame(columns=[GROUP_COL, "percentil", "Number_raw", "Number"])
+        return {
+            "meta": {"groups": 0, "rows": 0},
+            "percentiles": {"amount": empty_amt, "factor": empty_fac, "number": empty_num}
+        }
 
     g = g.sort_values([GROUP_COL, "tx_date_time"]).reset_index(drop=True)
 
@@ -61,13 +63,17 @@ def run_parameters_pgav_in(
         out = (
             sub.set_index("tx_date_time")["tx_base_amount"]
                .rolling("7D")
-               .agg(sum="sum", count="count")
+               .agg(["sum", "count"])
         )
         # Alinear por índice original de sub (igual a índices de g)
         out.index = sub.index
         return out
 
-    tmp = g.groupby(GROUP_COL, group_keys=False).apply(_roll_7d_sum_count)
+    tmp = (
+        g[[GROUP_COL, "tx_date_time", "tx_base_amount"]]
+        .groupby(GROUP_COL, group_keys=False)
+        .apply(_roll_7d_sum_count)
+    )
 
     g["prev_sum7"] = tmp["sum"] - g["tx_base_amount"]
     g["prev_cnt7"] = tmp["count"] - 1
@@ -75,6 +81,7 @@ def run_parameters_pgav_in(
     g["factor"] = np.where(g["peer_avg7_excl"] > 0, g["tx_base_amount"] / g["peer_avg7_excl"], np.nan)
     g["number_prev7"] = g["prev_cnt7"].clip(lower=0)
 
+    # ---- Percentiles por grupo (wide) ----
     rows = []
     for grp, sub in g.groupby(GROUP_COL):
         amt_q = _qdict(sub["tx_base_amount"], amount_qs)
@@ -91,5 +98,46 @@ def run_parameters_pgav_in(
             row[f"Number_p{int(q*100)}"]     = int(math.floor(v)) if np.isfinite(v) else np.nan
         rows.append(row)
 
-    out = pd.DataFrame(rows).sort_values(GROUP_COL).reset_index(drop=True)
-    return {"meta": {"groups": out.shape[0], "rows": int(g.shape[0])}, "percentiles": out}
+    wide = pd.DataFrame(rows).sort_values(GROUP_COL).reset_index(drop=True)
+
+    # ---- Reorganizar a tres tablas largas (amount/factor/number) ----
+    amt_rows = []
+    for _, r in wide.iterrows():
+        grp = r[GROUP_COL]
+        for q in amount_qs:
+            col = f"Amount_p{int(q*100)}"
+            amt_rows.append({GROUP_COL: grp, "percentil": f"p{int(q*100)}", "Amount_CLP": float(r[col]) if pd.notna(r[col]) else np.nan})
+    df_amount = pd.DataFrame(amt_rows, columns=[GROUP_COL,"percentil","Amount_CLP"])
+
+    fac_rows = []
+    for _, r in wide.iterrows():
+        grp = r[GROUP_COL]
+        for q in factor_qs:
+            col_raw = f"Factor_p{int(q*100)}_raw"
+            col_int = f"Factor_p{int(q*100)}"
+            fac_rows.append({
+                GROUP_COL: grp,
+                "percentil": f"p{int(q*100)}",
+                "Factor_raw": float(r[col_raw]) if pd.notna(r[col_raw]) else np.nan,
+                "Factor": float(r[col_int]) if pd.notna(r[col_int]) else np.nan
+            })
+    df_factor = pd.DataFrame(fac_rows, columns=[GROUP_COL,"percentil","Factor_raw","Factor"])
+
+    num_rows = []
+    for _, r in wide.iterrows():
+        grp = r[GROUP_COL]
+        for q in number_qs:
+            col_raw = f"Number_p{int(q*100)}_raw"
+            col_int = f"Number_p{int(q*100)}"
+            num_rows.append({
+                GROUP_COL: grp,
+                "percentil": f"p{int(q*100)}",
+                "Number_raw": float(r[col_raw]) if pd.notna(r[col_raw]) else np.nan,
+                "Number": float(r[col_int]) if pd.notna(r[col_int]) else np.nan
+            })
+    df_number = pd.DataFrame(num_rows, columns=[GROUP_COL,"percentil","Number_raw","Number"])
+
+    return {
+        "meta": {"groups": wide.shape[0], "rows": int(g.shape[0])},
+        "percentiles": {"amount": df_amount, "factor": df_factor, "number": df_number}
+    }

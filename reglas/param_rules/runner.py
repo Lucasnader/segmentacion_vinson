@@ -58,8 +58,8 @@ def _sanitize_name(name: str) -> str:
 
 def _df_to_numeric(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Convierte a numérico todas las columnas salvo 'percentil',
-    removiendo separadores de miles si existen.
+    Devuelve un DF igual a 'df' pero con columnas numéricas convertidas a float,
+    dejando intactas las columnas de texto (como customer_sub_type).
     """
     if df is None or df.empty:
         return df
@@ -67,8 +67,15 @@ def _df_to_numeric(df: pd.DataFrame) -> pd.DataFrame:
     for c in out.columns:
         if c.lower() == "percentil":
             continue
-        out[c] = pd.to_numeric(out[c].astype(str).str.replace(",", ""), errors="coerce")
+        # intento de parseo numérico (quitando separador de miles)
+        raw = out[c].astype(str).str.replace(",", "")
+        as_num = pd.to_numeric(raw, errors="coerce")
+        # Heurística: si al menos el 50% son números, tratamos la columna como numérica
+        if as_num.notna().sum() >= (len(as_num) * 0.5):
+            out[c] = as_num
+        # si no, dejamos la columna como está (texto)
     return out
+
 
 def _bundle_from_results(results: dict, subsub: str, tx_path: str) -> dict:
     """
@@ -86,17 +93,36 @@ def _bundle_from_results(results: dict, subsub: str, tx_path: str) -> dict:
     }
 
     def df_to_dict(df: pd.DataFrame) -> dict:
-        num = _df_to_numeric(df)
+        """
+        Convierte un DataFrame (formateado para display) a una lista de filas JSON.
+        - Intenta parsear cada celda a número (quitando comas).
+        - Si no puede, la deja como string.
+        - 'percentil' siempre se serializa como string.
+        """
         rows = []
-        for _, r in num.iterrows():
+        for _, r in df.iterrows():
             row = {}
             for k, v in r.items():
                 if k.lower() == "percentil":
-                    row["percentil"] = str(v)
+                    row["percentil"] = "" if pd.isna(v) else str(v)
+                    continue
+
+                # Intento de parseo numérico por celda
+                s = "" if pd.isna(v) else str(v)
+                if s != "":
+                    # quita separadores de miles si los hubiera
+                    num = pd.to_numeric(s.replace(",", ""), errors="coerce")
                 else:
-                    row[k] = None if pd.isna(v) else float(v)
+                    num = pd.NA
+
+                if pd.notna(num):
+                    row[k] = float(num)
+                else:
+                    # deja el valor como string (etiquetas de grupo, etc.)
+                    row[k] = s
             rows.append(row)
         return {"percentiles": rows}
+
 
     for rule_name, obj in results.items():
         if isinstance(obj, dict):  # ej. reglas que devuelven {"number": DF, "amount": DF}
@@ -146,13 +172,25 @@ def _fmt_thousands(v, decimals=0):
 def _format_percentiles(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     for c in out.columns:
-        if c == "percentil": continue
-        # Regla simple: Factor con 2 decimales, Number entero, Amount entero
-        if "Factor" in c:
-            out[c] = out[c].map(lambda x: _fmt_thousands(x, 2))
-        else:
-            out[c] = out[c].map(lambda x: _fmt_thousands(x, 0))
+        if c.lower() == "percentil":
+            continue
+
+        # Parseo numérico suave (quitando comas). No toca el DF aún.
+        parsed = pd.to_numeric(out[c].astype(str).str.replace(",", ""), errors="coerce")
+        mask = parsed.notna()
+
+        if mask.any():
+            # Para poder asignar strings sin warnings, forzamos dtype object
+            out[c] = out[c].astype(object)
+
+            if "Factor" in c:
+                out.loc[mask, c] = parsed[mask].map(lambda x: _fmt_thousands(x, 2))
+            else:
+                out.loc[mask, c] = parsed[mask].map(lambda x: _fmt_thousands(x, 0))
+        # Si no hay ningún numérico en la columna, la dejamos tal cual (p. ej., labels de grupo)
+
     return out
+
 
 def _format_percentiles_any(x):
     import pandas as pd
@@ -230,9 +268,9 @@ def run_parametrization(tx_path: str, subsub: str):
     print("P-TLI done.")
     results["P-TLO"]  = _format_percentiles(run_parameters_p_tlo(tx_path, subsubsegments=subsub)["percentiles"])
     print("P-TLO done.")
-    results["PGAV-IN"]= _format_percentiles(run_parameters_pgav_in(tx_path, subsubsegments=subsub)["percentiles"])
+    results["PGAV-IN"]= _format_percentiles_any(run_parameters_pgav_in(tx_path, subsubsegments=subsub)["percentiles"])
     print("PGAV-IN done.")
-    results["PGAV-OUT"]= _format_percentiles(run_parameters_pgav_out(tx_path, subsubsegments=subsub)["percentiles"])    
+    results["PGAV-OUT"]= _format_percentiles_any(run_parameters_pgav_out(tx_path, subsubsegments=subsub)["percentiles"])
     print("PGAV-OUT done.")
     results["RVT-IN"] = _format_percentiles_any(run_parameters_rvt_in(tx_path, subsubsegments=subsub)["percentiles"])
     print("RVT-IN done.")
@@ -261,7 +299,7 @@ def run_parametrization(tx_path: str, subsub: str):
     for name, obj in results.items():
         _print_result_block(name, obj)
 
-        return results
+    return results
 
 if __name__ == "__main__":
     # EDITA SOLO ESTAS DOS VARIABLES
