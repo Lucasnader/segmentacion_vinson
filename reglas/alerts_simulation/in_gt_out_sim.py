@@ -13,7 +13,7 @@ def simulate_in_gt_out(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],   # sólo se usará Amount_IN_30d del bundle
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
 ) -> pd.DataFrame:
     """
     IN>%OUT: ventanas cliente–día

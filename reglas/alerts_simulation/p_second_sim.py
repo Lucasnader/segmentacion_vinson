@@ -11,14 +11,14 @@ def simulate_p_second(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
     days_fixed: int | None = None,
 ) -> pd.DataFrame:
     df = load_tx_base(tx_path)
     df = filter_subsubs(df, subsubs)
 
-    df["tx_date_time"] = pd.to_datetime(df.get("tx_date_time"), errors="coerce")
-    df["customer_account_creation_date"] = pd.to_datetime(df.get("customer_account_creation_date"), errors="coerce")
+    df["tx_date_time"] = pd.to_datetime(df.get("tx_date_time"), errors="coerce", utc=True)
+    df["customer_account_creation_date"] = pd.to_datetime(df.get("customer_account_creation_date"), errors="coerce", utc=True)
     df["tx_base_amount"] = pd.to_numeric(df.get("tx_base_amount"), errors="coerce")
 
     g = df[

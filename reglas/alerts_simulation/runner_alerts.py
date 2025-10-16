@@ -36,6 +36,19 @@ from rvt_out_sim import simulate_rvt_out
 from sumcci_sim import simulate_sumcci
 from sumcco_sim import simulate_sumcco
 
+import re, unicodedata
+
+def _slugify_segment(seg):
+    """Convierte SUBSUBS_NUEVO (str o iterable) a un nombre de archivo seguro."""
+    if isinstance(seg, (list, tuple, set)):
+        seg = "__".join(map(str, seg))
+    seg = str(seg)
+    seg = unicodedata.normalize("NFKD", seg).encode("ascii", "ignore").decode("ascii")
+    seg = seg.strip().lower()
+    seg = re.sub(r"[^a-z0-9._-]+", "_", seg)
+    return seg or "segmento"
+
+
 
 # ============================================
 
@@ -47,21 +60,21 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # Config
 # ------------------------------------------------------------
 ROOT = Path(__file__).resolve().parents[2]
-TX_PATH = ROOT / "data" / "tx" / "datos_trx__with_subsub.csv"
+TX_PATH = ROOT / "data" / "tx" / "datos_trx__with_subsub_oficial.csv"
 PARAMS_BUNDLE = ROOT / "outputs" / "params" / "R-Low" / "params_R-Low.json"
 
-COUNT_FROM = "2025-02-21"
+COUNT_FROM = pd.Timestamp("2025-02-21", tz="UTC")
 SUBSUBS_ACTUAL = ["R-Low", "R-High"]
-SUBSUBS_NUEVO  = ["R-Low"]
+SUBSUBS_NUEVO  = ["R-High"]
 
 # Parámetros “Actuales” de reglas (si quieres comparar contra situación vigente)
 ACTUAL_PARAMS = {
     "PGAV-IN":  {"Amount": 20000000, "Factor": 5, "Number": 139},
     "PGAV-OUT": {"Amount": 17983025, "Factor": 4, "Number": 203},
-    "HANUMI":   {"Number": 2, "Factor": 51},
-    "HANUMO":   {"Number": 2, "Factor": 45},
-    "HASUMI":   {"Amount": 509_895_324, "Factor": 4},
-    "HASUMO":   {"Amount": 188_002_425, "Factor": 68},
+    "HANUMI":   {"Number": 2, "Factor": 59},
+    "HANUMO":   {"Number": 2, "Factor": 59},
+    "HASUMI":   {"Amount": 45_700_000, "Factor": 12},
+    "HASUMO":   {"Amount": 16_000_000, "Factor": 169},
     "HNR-IN":   {"Number": 6},
     "HNR-OUT":  {"Number": 4},
     "IN>%OUT":  {"Amount_IN_30d": 49084774},
@@ -603,28 +616,28 @@ def main():
     #     res_actual.append(df)
     # print("Simulated P-TLI for Actual.")
 
-    # P-TLO
-    sc = build_p_tlo(bundle, include_actual=True)
-    if "Actual" in sc:
-        df = simulate_p_tlo(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="P-TLO")
-        res_actual.append(df)
-    print("Simulated P-TLO for Actual.")
+    # # P-TLO
+    # sc = build_p_tlo(bundle, include_actual=True)
+    # if "Actual" in sc:
+    #     df = simulate_p_tlo(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="P-TLO")
+    #     res_actual.append(df)
+    # print("Simulated P-TLO for Actual.")
 
-    # RVT-IN
-    sc = build_rvt_scenarios(bundle, "RVT-IN", include_actual=True)
-    if "Actual" in sc:
-        df = simulate_rvt_in(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="RVT-IN")
-        res_actual.append(df)
-    print("Simulated RVT-IN for Actual.")
+    # # RVT-IN
+    # sc = build_rvt_scenarios(bundle, "RVT-IN", include_actual=True)
+    # if "Actual" in sc:
+    #     df = simulate_rvt_in(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="RVT-IN")
+    #     res_actual.append(df)
+    # print("Simulated RVT-IN for Actual.")
 
-    # RVT-OUT
-    sc = build_rvt_scenarios(bundle, "RVT-OUT", include_actual=True)
-    if "Actual" in sc:
-        df = simulate_rvt_out(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="RVT-OUT")
-        res_actual.append(df)
-    print("Simulated RVT-OUT for Actual.")
+    # # RVT-OUT
+    # sc = build_rvt_scenarios(bundle, "RVT-OUT", include_actual=True)
+    # if "Actual" in sc:
+    #     df = simulate_rvt_out(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="RVT-OUT")
+    #     res_actual.append(df)
+    # print("Simulated RVT-OUT for Actual.")
 
-    # SUMCCI
+    # # SUMCCI
     # sc = build_sumcc_scenarios(bundle, "SUMCCI", include_actual=True)
     # if "Actual" in sc:
     #     df = simulate_sumcci(str(TX_PATH), subsubs=SUBSUBS_ACTUAL, scenarios={"Actual": sc["Actual"]}, count_from=COUNT_FROM).assign(regla="SUMCCI")
@@ -645,174 +658,174 @@ def main():
     res_new = []
 
     # PGAV
-    # sc = build_pgav_scenarios(bundle, "PGAV-IN", include_actual=False)
-    # if sc:
-    #     df = simulate_pgav_in(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="PGAV-IN")
-    #     res_new.append(df)
-    # sc = build_pgav_scenarios(bundle, "PGAV-OUT", include_actual=False)
-    # if sc:
-    #     df = simulate_pgav_out(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="PGAV-OUT")
-    #     res_new.append(df)
-    # print("Simulated PGAV-IN and PGAV-OUT for new scenarios.")
+    sc = build_pgav_scenarios(bundle, "PGAV-IN", include_actual=False)
+    if sc:
+        df = simulate_pgav_in(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="PGAV-IN")
+        res_new.append(df)
+    sc = build_pgav_scenarios(bundle, "PGAV-OUT", include_actual=False)
+    if sc:
+        df = simulate_pgav_out(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="PGAV-OUT")
+        res_new.append(df)
+    print("Simulated PGAV-IN and PGAV-OUT for new scenarios.")
 
-    # # HANUMI/HANUMO
-    # sc = build_hanum_xy_scenarios(bundle, "HANUMI", include_actual=False)
-    # if sc:
-    #     df = simulate_hanumi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HANUMI")
-    #     res_new.append(df)
-    # sc = build_hanum_xy_scenarios(bundle, "HANUMO", include_actual=False)
-    # if sc:
-    #     df = simulate_hanumo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HANUMO")
-    #     res_new.append(df)
-    # print("Simulated HANUMI and HANUMO for new scenarios.")
+    # HANUMI/HANUMO
+    sc = build_hanum_xy_scenarios(bundle, "HANUMI", include_actual=False)
+    if sc:
+        df = simulate_hanumi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HANUMI")
+        res_new.append(df)
+    sc = build_hanum_xy_scenarios(bundle, "HANUMO", include_actual=False)
+    if sc:
+        df = simulate_hanumo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HANUMO")
+        res_new.append(df)
+    print("Simulated HANUMI and HANUMO for new scenarios.")
 
-    # # HASUMI/HASUMO
-    # sc = build_hasum_xy_scenarios(bundle, "HASUMI", include_actual=False)
-    # if sc:
-    #     df = simulate_hasumi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HASUMI")
-    #     res_new.append(df)
-    # sc = build_hasum_xy_scenarios(bundle, "HASUMO", include_actual=False)
-    # if sc:
-    #     df = simulate_hasumo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HASUMO")
-    #     res_new.append(df)
-    # print("Simulated HASUMI and HASUMO for new scenarios.")
+    # HASUMI/HASUMO
+    sc = build_hasum_xy_scenarios(bundle, "HASUMI", include_actual=False)
+    if sc:
+        df = simulate_hasumi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HASUMI")
+        res_new.append(df)
+    sc = build_hasum_xy_scenarios(bundle, "HASUMO", include_actual=False)
+    if sc:
+        df = simulate_hasumo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HASUMO")
+        res_new.append(df)
+    print("Simulated HASUMI and HASUMO for new scenarios.")
 
-    # # HNR-IN/OUT
-    # sc = build_hnr_scenarios(bundle, "HNR-IN", include_actual=False)
-    # if sc:
-    #     df = simulate_hnr_in(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HNR-IN")
-    #     res_new.append(df)
-    # sc = build_hnr_scenarios(bundle, "HNR-OUT", include_actual=False)
-    # if sc:
-    #     df = simulate_hnr_out(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HNR-OUT")
-    #     res_new.append(df)
-    # print("Simulated HNR-IN and HNR-OUT for new scenarios.")
+    # HNR-IN/OUT
+    sc = build_hnr_scenarios(bundle, "HNR-IN", include_actual=False)
+    if sc:
+        df = simulate_hnr_in(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HNR-IN")
+        res_new.append(df)
+    sc = build_hnr_scenarios(bundle, "HNR-OUT", include_actual=False)
+    if sc:
+        df = simulate_hnr_out(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="HNR-OUT")
+        res_new.append(df)
+    print("Simulated HNR-IN and HNR-OUT for new scenarios.")
 
-    # # IN>%OUT (bundle)
-    # sc = build_in_gt_out_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_in_gt_out(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="IN>%OUT")
-    #     res_new.append(df)
-    # print("Simulated IN>%OUT for new scenarios.")
+    # IN>%OUT (bundle)
+    sc = build_in_gt_out_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_in_gt_out(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="IN>%OUT")
+        res_new.append(df)
+    print("Simulated IN>%OUT for new scenarios.")
 
-    # # IN>AVG
-    # sc = build_in_avg_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_in_avg(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="IN>AVG")
-    #     res_new.append(df)
-    # print("Simulated IN>AVG for new scenarios.")
+    # IN>AVG
+    sc = build_in_avg_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_in_avg(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="IN>AVG")
+        res_new.append(df)
+    print("Simulated IN>AVG for new scenarios.")
 
-    # # OUT>AVG
-    # sc = build_out_avg_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_out_avg(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="OUT>AVG")
-    #     res_new.append(df)
-    # print("Simulated OUT>AVG for new scenarios.")
+    # OUT>AVG
+    sc = build_out_avg_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_out_avg(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="OUT>AVG")
+        res_new.append(df)
+    print("Simulated OUT>AVG for new scenarios.")
 
-    # # IN-OUT-1
-    # sc = build_in_out_1_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_in_out_1(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="IN-OUT-1")
-    #     res_new.append(df)
-    # print("Simulated IN-OUT-1 for new scenarios.")
+    # IN-OUT-1
+    sc = build_in_out_1_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_in_out_1(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="IN-OUT-1")
+        res_new.append(df)
+    print("Simulated IN-OUT-1 for new scenarios.")
 
-    # # OUT>%IN
-    # sc = build_out_pct_in_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_out_pct_in(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="OUT>%IN")
-    #     res_new.append(df)
-    # print("Simulated OUT>%IN for new scenarios.")
+    # OUT>%IN
+    sc = build_out_pct_in_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_out_pct_in(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="OUT>%IN")
+        res_new.append(df)
+    print("Simulated OUT>%IN for new scenarios.")
 
-    # # NUMCCI
-    # sc = build_numcci_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_numcci(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="NUMCCI")
-    #     res_new.append(df)
-    # print("Simulated NUMCCI for new scenarios.")
+    # NUMCCI
+    sc = build_numcci_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_numcci(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="NUMCCI")
+        res_new.append(df)
+    print("Simulated NUMCCI for new scenarios.")
 
-    # # NUMCCO
-    # sc = build_numcco_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_numcco(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="NUMCCO")
-    #     res_new.append(df)
-    # print("Simulated NUMCCO for new scenarios.")
+    # NUMCCO
+    sc = build_numcco_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_numcco(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="NUMCCO")
+        res_new.append(df)
+    print("Simulated NUMCCO for new scenarios.")
 
-    # # OCMC_1
-    # sc = build_ocmc_1_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_ocmc_1(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="OCMC_1")
-    #     res_new.append(df)
-    # print("Simulated OCMC_1 for new scenarios.")
+    # OCMC_1
+    sc = build_ocmc_1_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_ocmc_1(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="OCMC_1")
+        res_new.append(df)
+    print("Simulated OCMC_1 for new scenarios.")
 
-    # # P-%BAL
-    # sc = build_p_pctbal_scenarios(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_pctbal(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-%BAL")
-    #     res_new.append(df)
-    # print("Simulated P-%BAL for new scenarios.")
+    # P-%BAL
+    sc = build_p_pctbal_scenarios(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_pctbal(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-%BAL")
+        res_new.append(df)
+    print("Simulated P-%BAL for new scenarios.")
 
-    # # P-1st
-    # sc = build_p_first(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_first(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-1st")
-    #     res_new.append(df)
-    # print("Simulated P-1st for new scenarios.")
+    # P-1st
+    sc = build_p_first(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_first(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-1st")
+        res_new.append(df)
+    print("Simulated P-1st for new scenarios.")
 
-    # # P-2nd
-    # sc = build_p_second(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_second(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-2nd")
-    #     res_new.append(df)
-    # print("Simulated P-2nd for new scenarios.")
+    # P-2nd
+    sc = build_p_second(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_second(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-2nd")
+        res_new.append(df)
+    print("Simulated P-2nd for new scenarios.")
 
-    # # P-HSUMI
-    # sc = build_p_hsumi(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_hsumi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HSUMI")
-    #     res_new.append(df)
-    # print("Simulated P-HSUMI for new scenarios.")
+    # P-HSUMI
+    sc = build_p_hsumi(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_hsumi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HSUMI")
+        res_new.append(df)
+    print("Simulated P-HSUMI for new scenarios.")
 
-    # # P-HSUMO
-    # sc = build_p_hsumo(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_hsumo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HSUMO")
-    #     res_new.append(df)
-    # print("Simulated P-HSUMO for new scenarios.")
+    # P-HSUMO
+    sc = build_p_hsumo(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_hsumo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HSUMO")
+        res_new.append(df)
+    print("Simulated P-HSUMO for new scenarios.")
 
-    # # P-HVI
-    # sc = build_p_hvi(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_hvi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HVI")
-    #     res_new.append(df)
-    # print("Simulated P-HVI for new scenarios.")
+    # P-HVI
+    sc = build_p_hvi(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_hvi(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HVI")
+        res_new.append(df)
+    print("Simulated P-HVI for new scenarios.")
 
-    # # P-HVO
-    # sc = build_p_hvo(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_hvo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HVO")
-    #     res_new.append(df)
-    # print("Simulated P-HVO for new scenarios.")
+    # P-HVO
+    sc = build_p_hvo(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_hvo(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-HVO")
+        res_new.append(df)
+    print("Simulated P-HVO for new scenarios.")
 
-    # # P-LBAL
-    # sc = build_p_lbal(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_lbal(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-LBAL")
-    #     res_new.append(df)
-    # print("Simulated P-LBAL for new scenarios.")
+    # P-LBAL
+    sc = build_p_lbal(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_lbal(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-LBAL")
+        res_new.append(df)
+    print("Simulated P-LBAL for new scenarios.")
 
-    # # P-LVAL
-    # sc = build_p_lval(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_lval(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-LVAL")
-    #     res_new.append(df)
-    # print("Simulated P-LVAL for new scenarios.")
+    # P-LVAL
+    sc = build_p_lval(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_lval(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-LVAL")
+        res_new.append(df)
+    print("Simulated P-LVAL for new scenarios.")
 
-    # # P-TLI
-    # sc = build_p_tli(bundle, include_actual=False)
-    # if sc:
-    #     df = simulate_p_tli(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-TLI")
-    #     res_new.append(df)
-    # print("Simulated P-TLI for new scenarios.")
+    # P-TLI
+    sc = build_p_tli(bundle, include_actual=False)
+    if sc:
+        df = simulate_p_tli(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="P-TLI")
+        res_new.append(df)
+    print("Simulated P-TLI for new scenarios.")
 
     # P-TLO
     sc = build_p_tlo(bundle, include_actual=False)
@@ -836,18 +849,18 @@ def main():
     print("Simulated RVT-OUT for new scenarios.")
 
     # SUMCCI
-    # sc = build_sumcc_scenarios(bundle, "SUMCCI", include_actual=False)
-    # if sc:
-    #     df = simulate_sumcci(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="SUMCCI")
-    #     res_new.append(df)
-    # print("Simulated SUMCCI for new scenarios.")
+    sc = build_sumcc_scenarios(bundle, "SUMCCI", include_actual=False)
+    if sc:
+        df = simulate_sumcci(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="SUMCCI")
+        res_new.append(df)
+    print("Simulated SUMCCI for new scenarios.")
 
-    # # SUMCCO
-    # sc = build_sumcc_scenarios(bundle, "SUMCCO", include_actual=False)
-    # if sc:
-    #     df = simulate_sumcco(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="SUMCCO")
-    #     res_new.append(df)
-    # print("Simulated SUMCCO for new scenarios.")
+    # SUMCCO
+    sc = build_sumcc_scenarios(bundle, "SUMCCO", include_actual=False)
+    if sc:
+        df = simulate_sumcco(str(TX_PATH), subsubs=SUBSUBS_NUEVO, scenarios=sc, count_from=COUNT_FROM).assign(regla="SUMCCO")
+        res_new.append(df)
+    print("Simulated SUMCCO for new scenarios.")
 
 
 
@@ -858,6 +871,8 @@ def main():
         [df_actual.assign(tipo="actual"), df_new.assign(tipo="nuevo")],
         ignore_index=True,
     )
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     with open(OUT_DIR / "alerts_summary_long.json", "w", encoding="utf-8") as f:
         json.dump(summary.to_dict(orient="records"), f, ensure_ascii=False, indent=2)
@@ -876,13 +891,17 @@ def main():
         else:
             compact[regla][escenario.lower()] = alertas
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    with open(OUT_DIR / "alerts_summary_compact.json", "w", encoding="utf-8") as f:
+    # >>> nombre de archivo dependiente del segmento
+    seg_slug = _slugify_segment(SUBSUBS_NUEVO)
+    out_compact_path = OUT_DIR / f"alerts_summary_compact__{seg_slug}.json"
+
+    with open(out_compact_path, "w", encoding="utf-8") as f:
         json.dump(compact, f, ensure_ascii=False, indent=2)
 
     print("✔ Simulación de alertas terminada.")
     print(f"  - Resumen largo (JSON): {OUT_DIR/'alerts_summary_long.json'}")
-    print(f"  - Resumen compacto:     {OUT_DIR/'alerts_summary_compact.json'}")
+    print(f"  - Resumen compacto:     {out_compact_path}")
+
 
 
 if __name__ == "__main__":

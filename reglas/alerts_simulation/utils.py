@@ -140,11 +140,12 @@ def filter_subsubs(df: pd.DataFrame, subsubs: Iterable[str] | str) -> pd.DataFra
 
 # --------- Utilidad: contar solo desde COUNT_FROM (con contexto completo) ---------
 
-def restrict_counts_after(df: pd.DataFrame, date_col: str, count_from: str | pd.Timestamp) -> pd.Series:
-    """
-    Devuelve una serie booleana del mismo largo que df: True si la fila debe contarse
-    (df[date_col] >= count_from), False en caso contrario. Útil para conteo de alertas
-    manteniendo todo el contexto histórico.
-    """
-    ts = pd.to_datetime(count_from)
-    return pd.to_datetime(df[date_col]) >= ts
+def restrict_counts_after(df, date_col, count_from):
+    # Normaliza el umbral a UTC
+    ts = pd.to_datetime(count_from, utc=True)
+
+    # Normaliza la columna a UTC (segura aunque ya venga en UTC)
+    col = pd.to_datetime(df[date_col], errors="coerce", utc=True)
+
+    return col >= ts
+

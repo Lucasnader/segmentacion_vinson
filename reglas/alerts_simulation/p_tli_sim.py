@@ -9,7 +9,7 @@ def simulate_p_tli(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
 ) -> pd.DataFrame:
     df = load_tx_base(tx_path)
     df = filter_subsubs(df, subsubs)

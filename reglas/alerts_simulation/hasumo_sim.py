@@ -9,7 +9,7 @@ def simulate_hasumo(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
 ) -> pd.DataFrame:
     """
     HASUMO (Outbound Cash): ventanas cliente–día

@@ -12,15 +12,17 @@ def simulate_p_first(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
     days_fixed: int | None = None,
 ) -> pd.DataFrame:
     df = load_tx_base(tx_path)
     df = filter_subsubs(df, subsubs)
 
-    # 🔧 Casts defensivos para evitar dtypes mixtos / strings:
-    df["tx_date_time"] = pd.to_datetime(df.get("tx_date_time"), errors="coerce")
-    df["customer_account_creation_date"] = pd.to_datetime(df.get("customer_account_creation_date"), errors="coerce")
+    # ✅ Casts defensivos: forzar UTC en ambas fechas
+    df["tx_date_time"] = pd.to_datetime(df.get("tx_date_time"), errors="coerce", utc=True)
+    df["customer_account_creation_date"] = pd.to_datetime(
+        df.get("customer_account_creation_date"), errors="coerce", utc=True
+    )
     df["tx_base_amount"] = pd.to_numeric(df.get("tx_base_amount"), errors="coerce")
 
     g = df[
@@ -30,17 +32,16 @@ def simulate_p_first(
         & df["tx_base_amount"].notna()
     ][["customer_id","tx_date_time","customer_account_creation_date","tx_base_amount"]].copy()
 
-    if g.empty:
-        return pd.DataFrame([{"escenario": k, "alertas": 0} for k in scenarios])
-
     g = g.sort_values(["customer_id","tx_date_time"])
     g["tx_order"] = g.groupby("customer_id").cumcount() + 1
 
-    # ✅ Ambas columnas son datetime64[ns], resta vectorizada sin warnings:
+    # ✅ Ambas columnas ahora son datetime64[ns, UTC]; resta segura
     td = g["tx_date_time"] - g["customer_account_creation_date"]
     g["days_from_open"] = td.dt.total_seconds() / 86400.0
 
+    # Filtro por fecha (usa helper que también debe ser UTC)
     countable = restrict_counts_after(g, "tx_date_time", count_from)
+
 
     out = []
     for name, pars in scenarios.items():

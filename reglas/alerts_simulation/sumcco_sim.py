@@ -9,7 +9,7 @@ def simulate_sumcco(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
     tx_type_fixed: str = "Cash",
 ) -> pd.DataFrame:
     """

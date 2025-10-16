@@ -9,7 +9,7 @@ def simulate_p_hsumo(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
     collapse_runs: bool = False,
 ) -> pd.DataFrame:
     df = load_tx_base(tx_path)

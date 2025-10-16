@@ -1,43 +1,979 @@
 [
   {
     "escenario": "Actual",
-    "alertas": 259,
+    "alertas": 963,
+    "regla": "PGAV-IN",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 1338,
+    "regla": "PGAV-OUT",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 441,
+    "regla": "HANUMI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 583,
+    "regla": "HANUMO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 1172,
+    "regla": "HASUMI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 914,
+    "regla": "HASUMO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 2168,
+    "regla": "HNR-IN",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 2613,
+    "regla": "HNR-OUT",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 1623,
+    "regla": "IN>%OUT",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 200,
+    "regla": "IN>AVG",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 248,
+    "regla": "OUT>AVG",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 0,
+    "regla": "IN-OUT-1",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 2998,
+    "regla": "OUT>%IN",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 10918,
+    "regla": "NUMCCI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 10266,
+    "regla": "NUMCCO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 417,
+    "regla": "OCMC_1",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 0,
+    "regla": "P-%BAL",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 2,
+    "regla": "P-1st",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 0,
+    "regla": "P-2nd",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 1933,
+    "regla": "P-HSUMI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 1602,
+    "regla": "P-HSUMO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 175,
+    "regla": "P-HVI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 594,
+    "regla": "P-HVO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 3052,
+    "regla": "P-LBAL",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 193,
+    "regla": "P-LVAL",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 201,
+    "regla": "P-TLI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 203,
     "regla": "P-TLO",
     "tipo": "actual"
   },
   {
     "escenario": "Actual",
-    "alertas": 46,
+    "alertas": 26,
     "regla": "RVT-IN",
     "tipo": "actual"
   },
   {
     "escenario": "Actual",
-    "alertas": 393,
+    "alertas": 345,
     "regla": "RVT-OUT",
     "tipo": "actual"
   },
   {
+    "escenario": "Actual",
+    "alertas": 2952,
+    "regla": "SUMCCI",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 2256,
+    "regla": "SUMCCO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 3441,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
     "escenario": "p90",
-    "alertas": 3420,
+    "alertas": 1927,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 928,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 552,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 194,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p50",
+    "alertas": 24302,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p75",
+    "alertas": 24302,
+    "regla": "PGAV-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 4165,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 2480,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1209,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 671,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 244,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p50",
+    "alertas": 28860,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p75",
+    "alertas": 28860,
+    "regla": "PGAV-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 0,
+    "regla": "HANUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 0,
+    "regla": "HANUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 884,
+    "regla": "HANUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 431,
+    "regla": "HANUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 154,
+    "regla": "HANUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 0,
+    "regla": "HANUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 0,
+    "regla": "HANUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 567,
+    "regla": "HANUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 567,
+    "regla": "HANUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 207,
+    "regla": "HANUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 0,
+    "regla": "HASUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 0,
+    "regla": "HASUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 723,
+    "regla": "HASUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 346,
+    "regla": "HASUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 56,
+    "regla": "HASUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 0,
+    "regla": "HASUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 0,
+    "regla": "HASUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 772,
+    "regla": "HASUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 406,
+    "regla": "HASUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 88,
+    "regla": "HASUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1351,
+    "regla": "HNR-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 882,
+    "regla": "HNR-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 261,
+    "regla": "HNR-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2479,
+    "regla": "HNR-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1072,
+    "regla": "HNR-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 247,
+    "regla": "HNR-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 9042,
+    "regla": "IN>%OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 6077,
+    "regla": "IN>%OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2631,
+    "regla": "IN>%OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1532,
+    "regla": "IN>%OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p98",
+    "alertas": 1201,
+    "regla": "IN>%OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 581,
+    "regla": "IN>%OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 81,
+    "regla": "IN>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 50,
+    "regla": "IN>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 18,
+    "regla": "IN>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 10,
+    "regla": "IN>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 3,
+    "regla": "IN>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 855,
+    "regla": "OUT>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 537,
+    "regla": "OUT>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 225,
+    "regla": "OUT>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 102,
+    "regla": "OUT>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 22,
+    "regla": "OUT>AVG",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 0,
+    "regla": "IN-OUT-1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 0,
+    "regla": "IN-OUT-1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 0,
+    "regla": "IN-OUT-1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 0,
+    "regla": "IN-OUT-1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 0,
+    "regla": "IN-OUT-1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 5667,
+    "regla": "OUT>%IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 3363,
+    "regla": "OUT>%IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p98",
+    "alertas": 2422,
+    "regla": "OUT>%IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 1431,
+    "regla": "OUT>%IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p50",
+    "alertas": 188186,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p75",
+    "alertas": 37464,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 37464,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 10802,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 10802,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p98",
+    "alertas": 10802,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 4418,
+    "regla": "NUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p50",
+    "alertas": 173879,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p75",
+    "alertas": 36609,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 36609,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 10031,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 10031,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p98",
+    "alertas": 10031,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 3665,
+    "regla": "NUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p50",
+    "alertas": 2404,
+    "regla": "OCMC_1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p75",
+    "alertas": 2404,
+    "regla": "OCMC_1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 397,
+    "regla": "OCMC_1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 397,
+    "regla": "OCMC_1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 114,
+    "regla": "OCMC_1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 56,
+    "regla": "OCMC_1",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 2,
+    "regla": "P-%BAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2,
+    "regla": "P-%BAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1,
+    "regla": "P-%BAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 0,
+    "regla": "P-%BAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 7,
+    "regla": "P-1st",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 5,
+    "regla": "P-1st",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 3,
+    "regla": "P-1st",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 2,
+    "regla": "P-1st",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 1,
+    "regla": "P-1st",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 3,
+    "regla": "P-2nd",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 3,
+    "regla": "P-2nd",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2,
+    "regla": "P-2nd",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1,
+    "regla": "P-2nd",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 1,
+    "regla": "P-2nd",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 6758,
+    "regla": "P-HSUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 4245,
+    "regla": "P-HSUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2044,
+    "regla": "P-HSUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1271,
+    "regla": "P-HSUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 481,
+    "regla": "P-HSUMI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p85",
+    "alertas": 9998,
+    "regla": "P-HSUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 6304,
+    "regla": "P-HSUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 3403,
+    "regla": "P-HSUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1943,
+    "regla": "P-HSUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 695,
+    "regla": "P-HSUMO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 5772,
+    "regla": "P-HVI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2408,
+    "regla": "P-HVI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1709,
+    "regla": "P-HVI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 597,
+    "regla": "P-HVI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 7238,
+    "regla": "P-HVO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2513,
+    "regla": "P-HVO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1684,
+    "regla": "P-HVO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 882,
+    "regla": "P-HVO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1269,
+    "regla": "P-LBAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 795,
+    "regla": "P-LBAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 251,
+    "regla": "P-LBAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 53162,
+    "regla": "P-LVAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 53162,
+    "regla": "P-LVAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 53162,
+    "regla": "P-LVAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 253,
+    "regla": "P-LVAL",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 2192,
+    "regla": "P-TLI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1049,
+    "regla": "P-TLI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 630,
+    "regla": "P-TLI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 219,
+    "regla": "P-TLI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 2752,
     "regla": "P-TLO",
     "tipo": "nuevo"
   },
   {
     "escenario": "p95",
-    "alertas": 1694,
+    "alertas": 1338,
     "regla": "P-TLO",
     "tipo": "nuevo"
   },
   {
     "escenario": "p97",
-    "alertas": 986,
+    "alertas": 791,
     "regla": "P-TLO",
     "tipo": "nuevo"
   },
   {
     "escenario": "p99",
-    "alertas": 339,
+    "alertas": 271,
     "regla": "P-TLO",
     "tipo": "nuevo"
   },
@@ -61,7 +997,7 @@
   },
   {
     "escenario": "p95",
-    "alertas": 112,
+    "alertas": 102,
     "regla": "RVT-OUT",
     "tipo": "nuevo"
   },
@@ -75,6 +1011,54 @@
     "escenario": "p99",
     "alertas": 0,
     "regla": "RVT-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 4039,
+    "regla": "SUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1906,
+    "regla": "SUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1138,
+    "regla": "SUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 415,
+    "regla": "SUMCCI",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 5546,
+    "regla": "SUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 2625,
+    "regla": "SUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 1579,
+    "regla": "SUMCCO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 516,
+    "regla": "SUMCCO",
     "tipo": "nuevo"
   }
 ]

@@ -13,7 +13,7 @@ def simulate_hanumi(
     *,
     subsubs: Iterable[str] | str,
     scenarios: Dict[str, Dict[str, Any]],
-    count_from: str = "2025-03-01",
+    count_from: str = "2025-02-21",
 ) -> pd.DataFrame:
     """
     HANUMI: ventanas cliente–día (Inbound Cash)
