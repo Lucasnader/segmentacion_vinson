@@ -1,0 +1,80 @@
+[
+  {
+    "escenario": "Actual",
+    "alertas": 259,
+    "regla": "P-TLO",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 46,
+    "regla": "RVT-IN",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "Actual",
+    "alertas": 393,
+    "regla": "RVT-OUT",
+    "tipo": "actual"
+  },
+  {
+    "escenario": "p90",
+    "alertas": 3420,
+    "regla": "P-TLO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1694,
+    "regla": "P-TLO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 986,
+    "regla": "P-TLO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 339,
+    "regla": "P-TLO",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 1,
+    "regla": "RVT-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 0,
+    "regla": "RVT-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 0,
+    "regla": "RVT-IN",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p95",
+    "alertas": 112,
+    "regla": "RVT-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p97",
+    "alertas": 20,
+    "regla": "RVT-OUT",
+    "tipo": "nuevo"
+  },
+  {
+    "escenario": "p99",
+    "alertas": 0,
+    "regla": "RVT-OUT",
+    "tipo": "nuevo"
+  }
+]
