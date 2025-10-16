@@ -1,0 +1,1085 @@
+{
+  "meta": {
+    "subsubsegment": "I-1",
+    "tx_path": "C:\\Users\\vinso\\LV_vsc\\data\\tx\\datos_trx__with_subsub.csv",
+    "generated_at": "2025-10-16T18:47:12Z"
+  },
+  "rules": {
+    "OUT>AVG": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount": 75469967.0,
+          "Factor": 1.93
+        },
+        {
+          "percentil": "p90",
+          "Amount": 100643572.0,
+          "Factor": 2.42
+        },
+        {
+          "percentil": "p95",
+          "Amount": 184743064.0,
+          "Factor": 3.41
+        },
+        {
+          "percentil": "p97",
+          "Amount": 252944639.0,
+          "Factor": 4.33
+        },
+        {
+          "percentil": "p99",
+          "Amount": 481385501.0,
+          "Factor": 7.64
+        }
+      ]
+    },
+    "IN>AVG": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount": 100000000.0,
+          "Factor": 1.85
+        },
+        {
+          "percentil": "p90",
+          "Amount": 146037979.0,
+          "Factor": 2.27
+        },
+        {
+          "percentil": "p95",
+          "Amount": 241834750.0,
+          "Factor": 3.09
+        },
+        {
+          "percentil": "p97",
+          "Amount": 332114775.0,
+          "Factor": 3.97
+        },
+        {
+          "percentil": "p99",
+          "Amount": 572566460.0,
+          "Factor": 6.98
+        }
+      ]
+    },
+    "HNR-IN": {
+      "percentiles": [
+        {
+          "percentil": "p95",
+          "Number_max30d": 11.0
+        },
+        {
+          "percentil": "p97",
+          "Number_max30d": 14.0
+        },
+        {
+          "percentil": "p99",
+          "Number_max30d": 20.0
+        }
+      ]
+    },
+    "HNR-OUT": {
+      "percentiles": [
+        {
+          "percentil": "p95",
+          "Number_max30d": 10.0
+        },
+        {
+          "percentil": "p97",
+          "Number_max30d": 13.0
+        },
+        {
+          "percentil": "p99",
+          "Number_max30d": 21.0
+        }
+      ]
+    },
+    "HANUMI": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Number_raw_S3N": 2.0,
+          "Number_ceiled": 2.0,
+          "Factor_raw": "",
+          "Factor_ceiled": ""
+        },
+        {
+          "percentil": "p90",
+          "Number_raw_S3N": 2.0,
+          "Number_ceiled": 2.0,
+          "Factor_raw": "",
+          "Factor_ceiled": ""
+        },
+        {
+          "percentil": "p95",
+          "Number_raw_S3N": 3.0,
+          "Number_ceiled": 3.0,
+          "Factor_raw": 16.09,
+          "Factor_ceiled": 17.0
+        },
+        {
+          "percentil": "p97",
+          "Number_raw_S3N": 3.0,
+          "Number_ceiled": 3.0,
+          "Factor_raw": 22.12,
+          "Factor_ceiled": 23.0
+        },
+        {
+          "percentil": "p99",
+          "Number_raw_S3N": 4.0,
+          "Number_ceiled": 4.0,
+          "Factor_raw": 42.69,
+          "Factor_ceiled": 43.0
+        }
+      ]
+    },
+    "HANUMO": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Number_raw_S3N": 2.0,
+          "Number_ceiled": 2.0,
+          "Factor_raw": "",
+          "Factor_ceiled": ""
+        },
+        {
+          "percentil": "p90",
+          "Number_raw_S3N": 3.0,
+          "Number_ceiled": 3.0,
+          "Factor_raw": "",
+          "Factor_ceiled": ""
+        },
+        {
+          "percentil": "p95",
+          "Number_raw_S3N": 4.0,
+          "Number_ceiled": 4.0,
+          "Factor_raw": 16.0,
+          "Factor_ceiled": 16.0
+        },
+        {
+          "percentil": "p97",
+          "Number_raw_S3N": 5.0,
+          "Number_ceiled": 5.0,
+          "Factor_raw": 20.0,
+          "Factor_ceiled": 20.0
+        },
+        {
+          "percentil": "p99",
+          "Number_raw_S3N": 7.0,
+          "Number_ceiled": 7.0,
+          "Factor_raw": 39.33,
+          "Factor_ceiled": 40.0
+        }
+      ]
+    },
+    "HASUMI": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_S3": 141781630.0,
+          "Factor_raw": "",
+          "Factor_rec": ""
+        },
+        {
+          "percentil": "p90",
+          "Amount_S3": 197170000.0,
+          "Factor_raw": "",
+          "Factor_rec": ""
+        },
+        {
+          "percentil": "p95",
+          "Amount_S3": 318897958.0,
+          "Factor_raw": 23.5,
+          "Factor_rec": 24.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_S3": 448740307.0,
+          "Factor_raw": 34.83,
+          "Factor_rec": 35.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_S3": 780103154.0,
+          "Factor_raw": 76.64,
+          "Factor_rec": 77.0
+        }
+      ]
+    },
+    "HASUMO": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_S3": 127297649.0,
+          "Factor_raw": "",
+          "Factor_rec": ""
+        },
+        {
+          "percentil": "p90",
+          "Amount_S3": 187314649.0,
+          "Factor_raw": "",
+          "Factor_rec": ""
+        },
+        {
+          "percentil": "p95",
+          "Amount_S3": 298584520.0,
+          "Factor_raw": 23.3,
+          "Factor_rec": 24.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_S3": 409927385.0,
+          "Factor_raw": 34.25,
+          "Factor_rec": 35.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_S3": 746938351.0,
+          "Factor_raw": 82.6,
+          "Factor_rec": 83.0
+        }
+      ]
+    },
+    "IN>%OUT": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_IN_30d": 243902000.0
+        },
+        {
+          "percentil": "p90",
+          "Amount_IN_30d": 389864900.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_IN_30d": 761731210.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_IN_30d": 1041141250.0
+        },
+        {
+          "percentil": "p98",
+          "Amount_IN_30d": 1292708856.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_IN_30d": 1792949778.0
+        }
+      ]
+    },
+    "OUT>%IN": {
+      "percentiles": [
+        {
+          "percentil": "p95",
+          "Amount_OUT_30d": 714324646.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_OUT_30d": 1002464741.0
+        },
+        {
+          "percentil": "p98",
+          "Amount_OUT_30d": 1248558586.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_OUT_30d": 1723842000.0
+        }
+      ]
+    },
+    "IN-OUT-1 Amount": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_CLP": 75469967.0
+        },
+        {
+          "percentil": "p90",
+          "Amount_CLP": 100643572.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 184743064.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 252944639.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 481385501.0
+        }
+      ]
+    },
+    "NUMCCI": {
+      "percentiles": [
+        {
+          "percentil": "p50",
+          "Number_raw": 1.0,
+          "Number_ceil": 1.0
+        },
+        {
+          "percentil": "p75",
+          "Number_raw": 2.0,
+          "Number_ceil": 2.0
+        },
+        {
+          "percentil": "p90",
+          "Number_raw": 3.0,
+          "Number_ceil": 3.0
+        },
+        {
+          "percentil": "p95",
+          "Number_raw": 4.0,
+          "Number_ceil": 4.0
+        },
+        {
+          "percentil": "p97",
+          "Number_raw": 5.0,
+          "Number_ceil": 5.0
+        },
+        {
+          "percentil": "p98",
+          "Number_raw": 6.0,
+          "Number_ceil": 6.0
+        },
+        {
+          "percentil": "p99",
+          "Number_raw": 8.0,
+          "Number_ceil": 8.0
+        }
+      ]
+    },
+    "NUMCCO": {
+      "percentiles": [
+        {
+          "percentil": "p50",
+          "Number_raw": 0.0,
+          "Number_ceil": 0.0
+        },
+        {
+          "percentil": "p75",
+          "Number_raw": 1.0,
+          "Number_ceil": 1.0
+        },
+        {
+          "percentil": "p90",
+          "Number_raw": 1.0,
+          "Number_ceil": 1.0
+        },
+        {
+          "percentil": "p95",
+          "Number_raw": 2.0,
+          "Number_ceil": 2.0
+        },
+        {
+          "percentil": "p97",
+          "Number_raw": 2.0,
+          "Number_ceil": 2.0
+        },
+        {
+          "percentil": "p98",
+          "Number_raw": 2.0,
+          "Number_ceil": 2.0
+        },
+        {
+          "percentil": "p99",
+          "Number_raw": 3.0,
+          "Number_ceil": 3.0
+        }
+      ]
+    },
+    "OCMC_1": {
+      "percentiles": [
+        {
+          "percentil": "p50",
+          "Counterparties_30d": 4.0,
+          "Ceil": 4.0
+        },
+        {
+          "percentil": "p75",
+          "Counterparties_30d": 9.0,
+          "Ceil": 9.0
+        },
+        {
+          "percentil": "p90",
+          "Counterparties_30d": 15.0,
+          "Ceil": 15.0
+        },
+        {
+          "percentil": "p95",
+          "Counterparties_30d": 21.0,
+          "Ceil": 21.0
+        },
+        {
+          "percentil": "p97",
+          "Counterparties_30d": 23.0,
+          "Ceil": 23.0
+        },
+        {
+          "percentil": "p99",
+          "Counterparties_30d": 29.0,
+          "Ceil": 29.0
+        }
+      ]
+    },
+    "P-%BAL": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Balance": 640572654.0
+        },
+        {
+          "percentil": "p95",
+          "Balance": 1522087928.0
+        },
+        {
+          "percentil": "p97",
+          "Balance": 2006868420.0
+        },
+        {
+          "percentil": "p99",
+          "Balance": 4048514313.0
+        }
+      ]
+    },
+    "P-1st": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_CLP": 930000000.0
+        },
+        {
+          "percentil": "p90",
+          "Amount_CLP": 1280000000.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 2540000000.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 3044000000.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 3548000000.0
+        }
+      ]
+    },
+    "P-2nd": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_CLP": 1778678905.0
+        },
+        {
+          "percentil": "p90",
+          "Amount_CLP": 2462932604.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 3147186302.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 3420887781.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 3694589260.0
+        }
+      ]
+    },
+    "P-HSUMI": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_30d_max_per_customer_CLP": 885540875.0
+        },
+        {
+          "percentil": "p90",
+          "Amount_30d_max_per_customer_CLP": 1238686020.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_30d_max_per_customer_CLP": 2123885943.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_30d_max_per_customer_CLP": 2808489819.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_30d_max_per_customer_CLP": 5212430184.0
+        }
+      ]
+    },
+    "P-HSUMO": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "Amount_30d_max_per_customer_CLP": 936496136.0
+        },
+        {
+          "percentil": "p90",
+          "Amount_30d_max_per_customer_CLP": 1271958750.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_30d_max_per_customer_CLP": 1963502392.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_30d_max_per_customer_CLP": 2637027959.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_30d_max_per_customer_CLP": 4451280654.0
+        }
+      ]
+    },
+    "P-HVI": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Number_max30d": 12.0
+        },
+        {
+          "percentil": "p95",
+          "Number_max30d": 17.0
+        },
+        {
+          "percentil": "p97",
+          "Number_max30d": 20.0
+        },
+        {
+          "percentil": "p99",
+          "Number_max30d": 27.0
+        }
+      ]
+    },
+    "P-HVO": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Number_max30d": 16.0
+        },
+        {
+          "percentil": "p95",
+          "Number_max30d": 24.0
+        },
+        {
+          "percentil": "p97",
+          "Number_max30d": 26.0
+        },
+        {
+          "percentil": "p99",
+          "Number_max30d": 38.0
+        }
+      ]
+    },
+    "P-LBAL": {
+      "percentiles": [
+        {
+          "percentil": "p95",
+          "Balance_after_tx": 941576588.0
+        },
+        {
+          "percentil": "p97",
+          "Balance_after_tx": 1261728436.0
+        },
+        {
+          "percentil": "p99",
+          "Balance_after_tx": 2217363186.0
+        }
+      ]
+    },
+    "P-LVAL": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Factor_raw": 0.31,
+          "Factor_int": 0.0
+        },
+        {
+          "percentil": "p95",
+          "Factor_raw": 0.61,
+          "Factor_int": 1.0
+        },
+        {
+          "percentil": "p97",
+          "Factor_raw": 1.0,
+          "Factor_int": 1.0
+        },
+        {
+          "percentil": "p99",
+          "Factor_raw": 2.98,
+          "Factor_int": 3.0
+        }
+      ]
+    },
+    "P-TLI": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Amount_CLP": 146037979.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 241834750.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 332114775.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 572566460.0
+        }
+      ]
+    },
+    "P-TLO": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Amount_CLP": 100643572.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 184743064.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 252944639.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 481385501.0
+        }
+      ]
+    },
+    "PGAV-IN": {
+      "amount": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p85",
+            "Amount_CLP": 100000000.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p90",
+            "Amount_CLP": 146037979.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p95",
+            "Amount_CLP": 241834750.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p97",
+            "Amount_CLP": 332114775.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p99",
+            "Amount_CLP": 572566460.0
+          }
+        ]
+      },
+      "factor": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p90",
+            "Factor_raw": 2.42,
+            "Factor": 3.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p95",
+            "Factor_raw": 4.02,
+            "Factor": 5.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p97",
+            "Factor_raw": 5.46,
+            "Factor": 6.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p99",
+            "Factor_raw": 9.77,
+            "Factor": 10.0
+          }
+        ]
+      },
+      "number": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p50",
+            "Number_raw": 271.0,
+            "Number": 271.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p75",
+            "Number_raw": 302.0,
+            "Number": 302.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p90",
+            "Number_raw": 339.0,
+            "Number": 339.0
+          }
+        ]
+      }
+    },
+    "PGAV-OUT": {
+      "amount": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p85",
+            "Amount_CLP": 75469967.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p90",
+            "Amount_CLP": 100643572.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p95",
+            "Amount_CLP": 184743064.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p97",
+            "Amount_CLP": 252944639.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p99",
+            "Amount_CLP": 481385501.0
+          }
+        ]
+      },
+      "factor": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p90",
+            "Factor_raw": 2.29,
+            "Factor": 3.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p95",
+            "Factor_raw": 4.01,
+            "Factor": 5.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p97",
+            "Factor_raw": 5.66,
+            "Factor": 6.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p99",
+            "Factor_raw": 10.6,
+            "Factor": 11.0
+          }
+        ]
+      },
+      "number": {
+        "percentiles": [
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p50",
+            "Number_raw": 376.0,
+            "Number": 376.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p75",
+            "Number_raw": 411.0,
+            "Number": 411.0
+          },
+          {
+            "customer_sub_sub_type": "I-1",
+            "percentil": "p90",
+            "Number_raw": 442.0,
+            "Number": 442.0
+          }
+        ]
+      }
+    },
+    "RVT-IN": {
+      "number": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Number_raw": 11.0,
+            "Number_ceil": 11.0
+          },
+          {
+            "percentil": "p97",
+            "Number_raw": 14.0,
+            "Number_ceil": 15.0
+          },
+          {
+            "percentil": "p99",
+            "Number_raw": 20.0,
+            "Number_ceil": 20.0
+          }
+        ]
+      },
+      "amount": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Amount_CLP": 1870574325.0
+          },
+          {
+            "percentil": "p97",
+            "Amount_CLP": 2704476158.0
+          },
+          {
+            "percentil": "p99",
+            "Amount_CLP": 4948293130.0
+          }
+        ]
+      }
+    },
+    "RVT-OUT": {
+      "number": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Number_raw": 10.0,
+            "Number_ceil": 10.0
+          },
+          {
+            "percentil": "p97",
+            "Number_raw": 13.0,
+            "Number_ceil": 14.0
+          },
+          {
+            "percentil": "p99",
+            "Number_raw": 21.0,
+            "Number_ceil": 22.0
+          }
+        ]
+      },
+      "amount": {
+        "percentiles": [
+          {
+            "percentil": "p95",
+            "Amount_CLP": 1552931900.0
+          },
+          {
+            "percentil": "p97",
+            "Amount_CLP": 2309402625.0
+          },
+          {
+            "percentil": "p99",
+            "Amount_CLP": 3911847850.0
+          }
+        ]
+      }
+    },
+    "STRINCLP": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": ""
+        }
+      ]
+    },
+    "STRINEUR": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": ""
+        }
+      ]
+    },
+    "STRINUSD": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": ""
+        }
+      ]
+    },
+    "STROTCLP": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": ""
+        }
+      ]
+    },
+    "STROTEUR": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": ""
+        }
+      ]
+    },
+    "STROTUSD": {
+      "percentiles": [
+        {
+          "percentil": "p85",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p90",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p95",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p97",
+          "X_candidatos": ""
+        },
+        {
+          "percentil": "p99",
+          "X_candidatos": ""
+        }
+      ]
+    },
+    "SUMCCI": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Amount_CLP": 281888642.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 480048551.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 748725644.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 1067107311.0
+        }
+      ]
+    },
+    "SUMCCO": {
+      "percentiles": [
+        {
+          "percentil": "p90",
+          "Amount_CLP": 104138762.0
+        },
+        {
+          "percentil": "p95",
+          "Amount_CLP": 199682829.0
+        },
+        {
+          "percentil": "p97",
+          "Amount_CLP": 298268703.0
+        },
+        {
+          "percentil": "p99",
+          "Amount_CLP": 660197703.0
+        }
+      ]
+    }
+  }
+}

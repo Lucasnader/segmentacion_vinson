@@ -301,9 +301,9 @@ def run_parametrization(tx_path: str, subsub: str):
 
     return results
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     # EDITA SOLO ESTAS DOS VARIABLES
-    SUBSUB   = "R-Low"
+    SUBSUB   = "I-2"
     THIS_DIR = Path(__file__).resolve().parent
     ROOT     = THIS_DIR.parents[1]
     TX_PATH  = ROOT / "data" / "tx" / "datos_trx__with_subsub.csv"
